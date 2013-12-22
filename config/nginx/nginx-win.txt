@@ -1,0 +1,28 @@
+﻿
+    server {
+        listen 80;
+
+        server_name www.caiwen.org;
+       	try_files $uri $uri/ /app_dev.php?$query_string;
+
+        # 如果URL中包含app_dev.php，则转发为伪静态格式
+        rewrite ^/app_dev\.php/?(.*)$ /$1 permanent;
+
+        location / {
+            index app_dev.php;
+            root  D:/WebRoot/caiwen/codes/web;
+            try_files $uri @rewriteapp;
+        }
+
+        location @rewriteapp {
+            rewrite ^(.*)$ /app_dev.php/$1 last;
+        }
+
+	   location ~ \.php {
+            root           D:/WebRoot/caiwen/codes/web;
+            fastcgi_pass   127.0.0.1:9000;
+            fastcgi_index  app_dev.php;
+            fastcgi_param  SCRIPT_FILENAME  $document_root$fastcgi_script_name;
+            include        fastcgi_params;
+        }
+    }

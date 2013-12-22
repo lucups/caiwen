@@ -1,0 +1,7 @@
+parameters:
+#    caiwen_core.example.class: Caiwen\CoreBundle\Example
+
+services:
+#    caiwen_core.example:
+#        class: %caiwen_core.example.class%
+#        arguments: [@service_id, "plain_value", %parameter%]

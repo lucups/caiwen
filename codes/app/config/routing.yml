@@ -1,0 +1,4 @@
+caiwen_core:
+    resource: "@CaiwenCoreBundle/Controller/"
+    type:     annotation
+    prefix:   /

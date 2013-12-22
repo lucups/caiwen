@@ -1,0 +1,22 @@
+﻿开发环境： 
+Win7 64bit 
+Nginx 1.2.3
+PHP 5.4
+MySQL 5.6
+
+浏览器兼容性测试:
+IE8+
+Google Chrome 1.0+
+FireFox 1.0+
+Opera 1.0+
+
+Windows:
+Step 01: Update hosts file
+
+Step 02: Install Nginx and PHP
+
+Step 03: Intsall MySQL and import database schema
+
+Step 04: Update config file from new enviroment
+
+Step 05: Run & Debug
