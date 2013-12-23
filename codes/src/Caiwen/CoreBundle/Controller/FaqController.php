@@ -12,4 +12,28 @@ use Sensio\Bundle\FrameworkExtraBundle\Configuration\Template;
  */
 class FaqController extends Controller {
 
+    /**
+     * @Route("/add", name="_faq_add")
+     * @Template()
+     */
+    public function addAction() {
+        return array();
+    }
+
+    /**
+     * @Route("/list", name="_faq_list")
+     * @Template()
+     */
+    public function listAction() {
+        return array();
+    }
+
+    /**
+     * @Route("/view/{question_id}", name="_faq_view")
+     * @Template()
+     */
+    public function viewAction($question_id){
+        return array();
+    }
+
 }

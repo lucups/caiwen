@@ -12,7 +12,7 @@ use Sensio\Bundle\FrameworkExtraBundle\Configuration\Template;
  */
 class DefaultController extends Controller {
     /**
-     * @Route("/")
+     * @Route("/", name="_index")
      * @Template()
      */
     public function indexAction() {
