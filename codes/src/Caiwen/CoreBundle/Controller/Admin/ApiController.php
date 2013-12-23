@@ -3,7 +3,7 @@
  * Created by PhpStorm.
  * User: Lucups
  * Date: 13-12-23
- * Time: 下午5:58
+ * Time: 下午6:27
  */
 
 namespace Caiwen\CoreBundle\Controller\Admin;
@@ -13,18 +13,14 @@ use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Template;
 
-/**
- * Class HomeController
- * @package Caiwen\CoreBundle\Controller\Admin
- * @Route("/admin")
- */
-class HomeController extends Controller{
+use Symfony\Component\HttpFoundation\Response;
+use Symfony\Component\HttpFoundation\Request;
 
-    /**
-     * @Route("/index", name="_admin_index")
-     */
-    public function indexAction(){
-        return array();
-    }
+/**
+ * Class ApiController
+ * @package Caiwen\CoreBundle\Controller\Admin
+ * @Route("/api")
+ */
+class ApiController extends Controller{
 
 } 
