@@ -10,30 +10,29 @@ use Sensio\Bundle\FrameworkExtraBundle\Configuration\Template;
 /**
  * @Route("/user")
  */
-class UserController extends Controller
-{
-	/**
- 	 * @Route("/login")
- 	 * @Template()
- 	 */
-    public function loginAction()
-    {	
+class UserController extends Controller {
+
+    /**
+     * @Route("/login", name="_user_login")
+     * @Template()
+     */
+    public function loginAction() {
         return array();
     }
 
     /**
- 	 * @Route("/register")
- 	 * @Template()
- 	 */
-    public function registerAction() {	
+     * @Route("/register", name="_user_register")
+     * @Template()
+     */
+    public function registerAction() {
         return array();
     }
 
-	/**
- 	 * @Route("/login")
- 	 * @Template()
- 	 */
+    /**
+     * @Route("/logout", name="_user_logout")
+     * @Template()
+     */
     public function logoutAction() {
-    	return array();
+        return array();
     }
 }

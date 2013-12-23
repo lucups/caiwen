@@ -1,0 +1,24 @@
+{% extends "CaiwenCoreBundle::layout.html.twig" %}
+
+{% block content %}
+    <div class="row marketing">
+        <div class="col-lg-6 col-lg-offset-3 well">
+            <form class="form-signin">
+                <h2 class="form-signin-heading"><strong>登录菜问</strong></h2>
+
+                <p><input type="text" class="form-control" placeholder="账号" autofocus></p>
+
+                <p><input type="password" class="form-control" placeholder="密码"></p>
+
+                <p class="text-right">
+                    <button class="btn btn-lg btn-primary btn-block" type="submit">登 录</button>
+                </p>
+                <p class="text-right">
+                    <a href="forget-password.html">忘记密码？</a>
+                    <a href="register.html">没有账号？</a>
+                </p>
+
+            </form>
+        </div>
+    </div>
+{% endblock %}

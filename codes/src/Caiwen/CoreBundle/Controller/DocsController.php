@@ -8,15 +8,8 @@ use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Template;
 
 /**
- * @Route("/")
+ * @Route("/user")
  */
-class DefaultController extends Controller {
-    /**
-     * @Route("/")
-     * @Template()
-     */
-    public function indexAction() {
-        $name = "hello";
-        return array('name' => $name);
-    }
+class DocsController extends Controller {
+
 }

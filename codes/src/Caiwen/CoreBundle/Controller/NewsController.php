@@ -10,36 +10,28 @@ use Sensio\Bundle\FrameworkExtraBundle\Configuration\Template;
 /**
  * @Route("/news")
  */
-class NewsController extends Controller
-{
-	/**
- 	 * @Route("/")
- 	 * @Template()
- 	 */
-    public function indexAction()
-    {	
-    	$name = "hello";
-        return array('name' => $name);
-    }
+class NewsController extends Controller {
 
     /**
- 	 * @Route("/list")
- 	 * @Template()
- 	 */
+     * @Route("/list", name="_news_list")
+     * @Template()
+     */
     public function listAction() {
         return array();
     }
 
     /**
-     * @Route("/view/{news_id}")
+     * @Route("/view/{news_id}", name="_news_view")
      * @Template()
-     */ 
+     */
     public function viewAction($news_id) {
-        return array();
+        return array(
+            'news_id' => $news_id,
+        );
     }
 
     /**
-     * @Route("/add")
+     * @Route("/add", name="_news_add")
      * @Template()
      */
     public function addAction() {
@@ -47,7 +39,7 @@ class NewsController extends Controller
     }
 
     /**
-     * @Route("/edit")
+     * @Route("/edit", name="_news_edit")
      * @Template()
      */
     public function editAction() {

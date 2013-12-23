@@ -13,27 +13,26 @@ use Symfony\Component\HttpFoundation\Request;
 /**
  * @Route("/api")
  */
-class ApiController extends Controller
-{
+class ApiController extends Controller {
 
     /**
      * @Route("/news/add")
      */
-    public function addNewsNewsAction() {    
+    public function addNewsNewsAction() {
         return new Response('0000');
     }
 
-	/**
- 	 * @Route("/news/delete/{news_id}")
- 	 */
-    public function deleteNewsAction($news_id) {	
+    /**
+     * @Route("/news/delete/{news_id}")
+     */
+    public function deleteNewsAction($news_id) {
         return new Response('0001');
     }
 
     /**
      * @Route("/news/edit/{news_id}")
      */
-    public function editNewsAction($news_id) {    
+    public function editNewsAction($news_id) {
         return new Response('0002');
     }
 
