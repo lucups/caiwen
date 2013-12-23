@@ -2,3 +2,4 @@ codes/app/cache/*
 codes/app/logs/*
 codes/app/config/parameters.yml
 codes/web/uploads/*
+.idea/*
