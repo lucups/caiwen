@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>菜问后台管理系统</title>
+    <meta content="IE=edge,chrome=1" http-equiv="X-UA-Compatible">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <link rel="stylesheet" type="text/css" href="{{ asset('lib/bootstrap/css/bootstrap.css') }}">
+
+    <link rel="stylesheet" type="text/css" href="{{ asset('stylesheets/theme.css') }}">
+    <link rel="stylesheet" href="{{ asset('lib/font-awesome/css/font-awesome.css') }}">
+
+    <script src="{{ asset('lib/jquery-1.7.2.min.js') }}" type="text/javascript"></script>
+
+    <!-- Demo page code -->
+
+    <style type="text/css">
+        #line-chart {
+            height: 300px;
+            width: 800px;
+            margin: 0px auto;
+            margin-top: 1em;
+        }
+
+        .brand {
+            font-family: georgia, serif;
+        }
+
+        .brand .first {
+            color: #ccc;
+            font-style: italic;
+        }
+
+        .brand .second {
+            color: #fff;
+            font-weight: bold;
+        }
+    </style>
+
+    <!-- Le HTML5 shim, for IE6-8 support of HTML5 elements -->
+    <!--[if lt IE 9]>
+    <script src="{{ asset('lib/html5.js') }}"></script>
+    <![endif]-->
+
+    <!-- Le fav and touch icons -->
+    <link rel="shortcut icon" href="{{ asset('ico/favicon.ico') }}">
+</head>
+
+<!--[if lt IE 7 ]>
+<body class="ie ie6"> <![endif]-->
+<!--[if IE 7 ]>
+<body class="ie ie7 "> <![endif]-->
+<!--[if IE 8 ]>
+<body class="ie ie8 "> <![endif]-->
+<!--[if IE 9 ]>
+<body class="ie ie9 "> <![endif]-->
+<!--[if (gt IE 9)|!(IE)]><!-->
+<body class="">
+<!--<![endif]-->
+
+<div class="navbar">
+    <div    class="navbar-inner">
+        <ul class="nav pull-right">
+
+            <li><a href="#" class="hidden-phone visible-tablet visible-desktop" role="button">设置</a></li>
+            <li id="fat-menu" class="dropdown">
+                <a href="#" role="button" class="dropdown-toggle" data-toggle="dropdown">
+                    <i class="icon-user"></i> admin
+                    <i class="icon-caret-down"></i>
+                </a>
+
+                <ul class="dropdown-menu">
+                    <li><a tabindex="-1" href="#">修改密码</a></li>
+                    <li class="divider"></li>
+                    <li><a tabindex="-1" class="visible-phone" href="#">设置</a></li>
+                    <li class="divider visible-phone"></li>
+                    <li><a tabindex="-1" href="sign-in.html">退出系统</a></li>
+                </ul>
+            </li>
+
+        </ul>
+        <a class="brand" href="{{ path('_admin_index') }}"><span class="first">菜问</span> <span
+                    class="second">后台管理系统</span></a>
+    </div>
+</div>
+
+
+<div class="sidebar-nav">
+    <p style="margin:6px;"></p>
+    <a href="#news-menu" class="nav-header" data-toggle="collapse"><i class="icon-file"></i>新闻管理</a>
+    <ul id="news-menu" class="nav nav-list collapse in">
+        <li><a href="#" id="news-add"><i class="icon-plus"></i>添加新闻</a></li>
+        <li><a href="#" id="news-list"><i class="icon-list"></i>新闻列表</a></li>
+    </ul>
+
+    <a href="#faq-menu" class="nav-header" data-toggle="collapse"><i class="icon-comment"></i>问答管理
+        <span class="label label-info">+3</span>
+    </a>
+    <ul id="faq-menu" class="nav nav-list collapse">
+        <li><a href="#"><i class="icon-envelope"></i>等待回答 <span class="label label-info">+3</span></a></li>
+        <li><a href="#"><i class="icon-list"></i>问答列表</a></li>
+    </ul>
+
+    <a href="#photo-menu" class="nav-header" data-toggle="collapse"><i class="icon-picture"></i>图文管理</a>
+    <ul id="photo-menu" class="nav nav-list collapse">
+        <li><a href="#"><i class="icon-plus"></i>新增图文</a></li>
+        <li><a href="#"><i class="icon-list"></i>白菜病害</a></li>
+        <li><a href="#"><i class="icon-list"></i>白菜虫害</a></li>
+        <li><a href="#"><i class="icon-list"></i>杂草识别</a></li>
+    </ul>
+
+    <a href="#docs-menu" class="nav-header" data-toggle="collapse"><i class="icon-book"></i>文献管理</a>
+    <ul id="docs-menu" class="nav nav-list collapse">
+        <li><a href="#"><i class="icon-plus"></i>新增文献</a></li>
+        <li><a href="#"><i class="icon-list"></i>文献列表</a></li>
+    </ul>
+</div>
+
+
+<div class="content">
+
+    <div class="header">
+        <div class="stats">
+            <p class="stat"><span class="number">3</span>条会员提问等待处理</p>
+        </div>
+
+        <h1 class="page-title" id="page-title">欢迎！</h1>
+    </div>
+
+    <ul class="breadcrumb" id="bread-crumb">
+        <li><a href="{{ path('_admin_index') }}">管理首页</a> <span class="divider">/</span></li>
+        <li class="active">欢迎！</li>
+    </ul>
+
+    <div class="container-fluid">
+        <div class="row-fluid">
+            <div id="content">
+            <p style="margin-top:10%;">欢迎来到 菜问 后台管理系统！</p>
+            </div>
+            <footer>
+                <hr>
+                <!-- Purchase a site license to remove this link from the footer: http://www.portnine.com/bootstrap-themes -->
+                <p class="pull-right">Cai Wen System Version 1.0</p>
+                <p>&copy; 2013 菜问团队</p>
+            </footer>
+
+        </div>
+    </div>
+</div>
+
+
+<script src="{{ asset('lib/bootstrap/js/bootstrap.js') }}"></script>
+<script type="text/javascript">
+    $("[rel=tooltip]").tooltip();
+    $(function () {
+        $('.demo-cancel-click').click(function () {
+            return false;
+        });
+
+        $('#news-add').click(function(){
+            $.ajax({
+                url: '{{ path('_admin_news_add') }}',
+                method: 'GET',
+                success: function(msg){
+                    var bc = '<li>'+
+                            '<a href="{{ path('_admin_index') }}">管理首页</a>'+
+                            '<span class="divider">/</span></li>'+
+                            '<a href="#">新闻管理</a>'+
+                            '<span class="divider">/</span></li>'+
+                            '<li class="active">添加新闻'+
+                            '</li>';
+                    $('#page-title').text('添加新闻');
+                    $('#bread-crumb').html(bc);
+                    $('#content').html(msg);
+                }
+            });
+        });
+
+        $('#news-list').click(function(){
+            $.ajax({
+                url: '{{ path('_admin_news_list') }}',
+                method: 'GET',
+                success: function(msg){
+                    var bc = '<li>'+
+                            '<a href="{{ path('_admin_index') }}">管理首页</a>'+
+                            '<span class="divider">/</span></li>'+
+                            '<a href="#">新闻管理</a>'+
+                            '<span class="divider">/</span></li>'+
+                            '<li class="active">新闻列表'+
+                            '</li>';
+                    $('#page-title').text('新闻列表');
+                    $('#bread-crumb').html(bc);
+                    $('#content').html(msg);
+                }
+            });
+        });
+    });
+</script>
+
+</body>
+</html>
+
+

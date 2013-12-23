@@ -22,9 +22,26 @@ class HomeController extends Controller{
 
     /**
      * @Route("/index", name="_admin_index")
+     * @Template()
      */
     public function indexAction(){
         return array();
     }
 
-} 
+    /**
+     * @Route("/news-add", name="_admin_news_add")
+     * @Template()
+     */
+    public function newsAddAction(){
+        return array();
+    }
+
+    /**
+     * @Route("/news-list", name="_admin_news_list")
+     * @Template()
+     */
+    public function newsListAction(){
+        return array();
+    }
+
+}
