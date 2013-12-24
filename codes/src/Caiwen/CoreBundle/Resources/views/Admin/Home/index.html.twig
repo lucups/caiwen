@@ -62,7 +62,7 @@
 <!--<![endif]-->
 
 <div class="navbar">
-    <div    class="navbar-inner">
+    <div class="navbar-inner">
         <ul class="nav pull-right">
 
             <li><a href="#" class="hidden-phone visible-tablet visible-desktop" role="button">设置</a></li>
@@ -138,12 +138,13 @@
     <div class="container-fluid">
         <div class="row-fluid">
             <div id="content">
-            <p style="margin-top:10%;">欢迎来到 菜问 后台管理系统！</p>
+                <p style="margin-top:10%;">欢迎来到 菜问 后台管理系统！</p>
             </div>
             <footer>
                 <hr>
                 <!-- Purchase a site license to remove this link from the footer: http://www.portnine.com/bootstrap-themes -->
                 <p class="pull-right">Cai Wen System Version 1.0</p>
+
                 <p>&copy; 2013 菜问团队</p>
             </footer>
 
@@ -160,43 +161,41 @@
             return false;
         });
 
-        $('#news-add').click(function(){
-            $.ajax({
-                url: '{{ path('_admin_news_add') }}',
-                method: 'GET',
-                success: function(msg){
-                    var bc = '<li>'+
-                            '<a href="{{ path('_admin_index') }}">管理首页</a>'+
-                            '<span class="divider">/</span></li>'+
-                            '<a href="#">新闻管理</a>'+
-                            '<span class="divider">/</span></li>'+
-                            '<li class="active">添加新闻'+
-                            '</li>';
-                    $('#page-title').text('添加新闻');
-                    $('#bread-crumb').html(bc);
-                    $('#content').html(msg);
-                }
-            });
+        $('#news-add').click(function () {
+            var url = '{{ path('_admin_news_add') }}';
+            var bc = '<li>' +
+                    '<a href="{{ path('_admin_index') }}">管理首页</a>' +
+                    '<span class="divider">/</span></li>' +
+                    '<a href="#">新闻管理</a>' +
+                    '<span class="divider">/</span></li>' +
+                    '<li class="active">添加新闻' +
+                    '</li>';
+            loadAjax(url, bc, '添加新闻');
         });
 
-        $('#news-list').click(function(){
+        $('#news-list').click(function () {
+            var url = '{{ path('_admin_news_list') }}';
+            var bc = '<li>' +
+                    '<a href="{{ path('_admin_index') }}">管理首页</a>' +
+                    '<span class="divider">/</span></li>' +
+                    '<a href="#">新闻管理</a>' +
+                    '<span class="divider">/</span></li>' +
+                    '<li class="active">新闻列表' +
+                    '</li>';
+            loadAjax(url, bc, '新闻管理');
+        });
+
+        function loadAjax(url, bc, title) {
             $.ajax({
-                url: '{{ path('_admin_news_list') }}',
+                url: url,
                 method: 'GET',
-                success: function(msg){
-                    var bc = '<li>'+
-                            '<a href="{{ path('_admin_index') }}">管理首页</a>'+
-                            '<span class="divider">/</span></li>'+
-                            '<a href="#">新闻管理</a>'+
-                            '<span class="divider">/</span></li>'+
-                            '<li class="active">新闻列表'+
-                            '</li>';
-                    $('#page-title').text('新闻列表');
+                success: function (msg) {
+                    $('#page-title').text(title);
                     $('#bread-crumb').html(bc);
                     $('#content').html(msg);
                 }
             });
-        });
+        }
     });
 </script>
 
