@@ -1,0 +1,47 @@
+<div class="btn-toolbar">
+    <button class="btn btn-primary"><i class="icon-plus"></i>添加新闻</button>
+    <button class="btn">导入</button>
+    <button class="btn">导出</button>
+    <div class="btn-group">
+    </div>
+</div>
+<div class="well">
+    <table class="table">
+        <!-- 表头 -->
+        <thead>
+        <tr>
+            <th>系统编号</th>
+            <th>新闻标题</th>
+            <th>发布时间</th>
+            <th>发布者</th>
+            <th style="width: 26px;"></th>
+        </tr>
+        </thead>
+        <!-- 数据 -->
+        {% for i in 1..10 %}
+            <tbody>
+            <tr>
+                <td>{{ i }}</td>
+                <td>欢迎任何形式的转载，但请务必注明出处，尊重他人劳动共创开源社区</td>
+                <td>2013-10-22 09:18</td>
+                <td>admin</td>
+                <td>
+                    <a href="user.html"><i class="icon-pencil"></i></a>
+                    <a href="#myModal" role="button" data-toggle="modal"><i class="icon-remove"></i></a>
+                </td>
+            </tr>
+            </tbody>
+        {% endfor %}
+    </table>
+</div>
+<!-- 分页 -->
+<div class="pagination pull-right">
+    <ul>
+        <li><a href="#">Prev</a></li>
+        <li><a href="#">1</a></li>
+        <li><a href="#">2</a></li>
+        <li><a href="#">3</a></li>
+        <li><a href="#">4</a></li>
+        <li><a href="#">Next</a></li>
+    </ul>
+</div>
