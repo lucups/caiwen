@@ -1,5 +1,5 @@
 <div class="btn-toolbar">
-    <button class="btn btn-primary"><i class="icon-save"></i> 发布新闻</button>
+    <button class="btn btn-primary"><i class="icon-save"></i> 保存文献</button>
 
     <div class="btn-group">
     </div>
@@ -15,11 +15,28 @@
         </div>
 
         <div class="control-group">
-            <label class="control-label" for="content">正文</label>
+            <label class="control-label" for="author">作者</label>
 
             <div class="controls">
-                <textarea id="content" rows="15" class="input-xxlarge" placeholder="正文"></textarea>
+                <input type="text" id="author" placeholder="作者" class="input-xxlarge">
             </div>
         </div>
+
+        <div class="control-group">
+            <label class="control-label" for="keywords">关键词</label>
+
+            <div class="controls">
+                <input type="text" id="keywords" placeholder="关键词" class="input-xxlarge">
+            </div>
+        </div>
+
+        <div class="control-group">
+            <label class="control-label" for="title">PDF</label>
+
+            <div class="controls">
+                <input type="file" id="pdf">
+            </div>
+        </div>
+
     </form>
 </div>
