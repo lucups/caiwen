@@ -6,6 +6,19 @@
 </div>
 <div class="well">
     <form class="form-horizontal">
+
+        <div class="control-group">
+            <label class="control-label" for="title">类别</label>
+
+            <div class="controls">
+                <select class="input-xxlarge">
+                    <option value="1">白菜病害</option>
+                    <option value="2">白菜虫害</option>
+                    <option value="3">杂草识别</option>
+                </select>
+            </div>
+        </div>
+
         <div class="control-group">
             <label class="control-label" for="title">标题</label>
 
@@ -18,7 +31,8 @@
             <label class="control-label" for="title">图片</label>
 
             <div class="controls">
-                <input type="file" id="image"><button class="btn btn-primary">上传</button>
+                <input type="file" id="image">
+                <button class="btn btn-primary">上传</button>
             </div>
         </div>
 
@@ -26,7 +40,7 @@
             <label class="control-label" for="content">内容</label>
 
             <div class="controls">
-                <textarea id="content" rows="15" class="input-xxlarge" placeholder="正文"></textarea>
+                <textarea id="content" rows="15" class="input-xxlarge" placeholder="内容"></textarea>
             </div>
         </div>
     </form>
