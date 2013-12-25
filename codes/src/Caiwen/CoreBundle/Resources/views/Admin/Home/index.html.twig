@@ -100,22 +100,23 @@
         <span class="label label-info">+3</span>
     </a>
     <ul id="faq-menu" class="nav nav-list collapse">
-        <li><a href="#"><i class="icon-envelope"></i>等待回答 <span class="label label-info">+3</span></a></li>
-        <li><a href="#"><i class="icon-list"></i>问答列表</a></li>
+        <li><a href="#" id="faq-wait"><i class="icon-envelope"></i>等待回答 <span class="label label-info">+3</span></a>
+        </li>
+        <li><a href="#" id="faq-list"><i class="icon-list"></i>问答列表</a></li>
     </ul>
 
     <a href="#photo-menu" class="nav-header" data-toggle="collapse"><i class="icon-picture"></i>图文管理</a>
     <ul id="photo-menu" class="nav nav-list collapse">
-        <li><a href="#"><i class="icon-plus"></i>新增图文</a></li>
-        <li><a href="#"><i class="icon-list"></i>白菜病害</a></li>
-        <li><a href="#"><i class="icon-list"></i>白菜虫害</a></li>
-        <li><a href="#"><i class="icon-list"></i>杂草识别</a></li>
+        <li><a href="#" id="photo-add"><i class="icon-plus"></i>新增图文</a></li>
+        <li><a href="#" id="photo-list-1"><i class="icon-list"></i>白菜病害</a></li>
+        <li><a href="#" id="photo-list-2"><i class="icon-list"></i>白菜虫害</a></li>
+        <li><a href="#" id="photo-list-3"><i class="icon-list"></i>杂草识别</a></li>
     </ul>
 
     <a href="#docs-menu" class="nav-header" data-toggle="collapse"><i class="icon-book"></i>文献管理</a>
     <ul id="docs-menu" class="nav nav-list collapse">
-        <li><a href="#"><i class="icon-plus"></i>新增文献</a></li>
-        <li><a href="#"><i class="icon-list"></i>文献列表</a></li>
+        <li><a href="#" id="docs-add"><i class="icon-plus"></i>新增文献</a></li>
+        <li><a href="#" id="docs-list"><i class="icon-list"></i>文献列表</a></li>
     </ul>
 </div>
 
@@ -163,43 +164,139 @@
 
         $('#news-add').click(function () {
             var url = '{{ path('_admin_news_add') }}';
-            var bc = '<li>' +
-                    '<a href="{{ path('_admin_index') }}">管理首页</a>' +
-                    '<span class="divider">/</span></li>' +
-                    '<a href="#">新闻管理</a>' +
-                    '<span class="divider">/</span></li>' +
-                    '<li class="active">添加新闻' +
-                    '</li>';
-            loadAjax(url, bc, '添加新闻');
+            var bc_arr = [
+                ['{{ path('_admin_index') }}', '管理首页'],
+                ['#', '新闻管理'],
+                ['*', '添加新闻']
+            ];
+            loadAjax(url, generateBC(bc_arr), '添加新闻');
         });
 
         $('#news-list').click(function () {
             var url = '{{ path('_admin_news_list') }}';
-            var bc = '<li>' +
-                    '<a href="{{ path('_admin_index') }}">管理首页</a>' +
-                    '<span class="divider">/</span></li>' +
-                    '<a href="#">新闻管理</a>' +
-                    '<span class="divider">/</span></li>' +
-                    '<li class="active">新闻列表' +
-                    '</li>';
-            loadAjax(url, bc, '新闻管理');
+            var bc_arr = [
+                ['{{ path('_admin_index') }}', '管理首页'],
+                ['#', '新闻管理'],
+                ['*', '新闻列表']
+            ];
+            loadAjax(url, generateBC(bc_arr), '新闻列表');
         });
 
-        function loadAjax(url, bc, title) {
-            $.ajax({
-                url: url,
-                method: 'GET',
-                success: function (msg) {
-                    $('#page-title').text(title);
-                    $('#bread-crumb').html(bc);
-                    $('#content').html(msg);
-                }
-            });
-        }
+        $('#faq-wait').click(function () {
+            var url = '{{ path('_admin_faq_wait') }}';
+            var bc_arr = [
+                ['{{ path('_admin_index') }}', '管理首页'],
+                ['#', '问答管理'],
+                ['*', '等待回答']
+            ];
+            loadAjax(url, generateBC(bc_arr), '等待回答');
+        });
+
+        $('#faq-list').click(function () {
+            var url = '{{ path('_admin_faq_list') }}';
+            var bc_arr = [
+                ['{{ path('_admin_index') }}', '管理首页'],
+                ['#', '问答管理'],
+                ['*', '问答列表']
+            ];
+            loadAjax(url, generateBC(bc_arr), '问答列表');
+        });
+
+        $('#photo-add').click(function () {
+            var url = '{{ path('_admin_photo_add') }}';
+            var bc_arr = [
+                ['{{ path('_admin_index') }}', '管理首页'],
+                ['#', '图文管理'],
+                ['*', '新增图文']
+            ];
+            loadAjax(url, generateBC(bc_arr), '新增图文');
+        });
+
+        $('#photo-list-1').click(function () {
+            var url = '{{ path('_admin_photo_list') }}';
+            var bc_arr = [
+                ['{{ path('_admin_index') }}', '管理首页'],
+                ['#', '图文管理'],
+                ['*', '白菜病害']
+            ];
+            loadAjax(url, generateBC(bc_arr), '白菜病害');
+        });
+
+        $('#photo-list-2').click(function () {
+            var url = '{{ path('_admin_photo_list') }}';
+            var bc_arr = [
+                ['{{ path('_admin_index') }}', '管理首页'],
+                ['#', '图文管理'],
+                ['*', '白菜虫害']
+            ];
+            loadAjax(url, generateBC(bc_arr), '白菜虫害');
+        });
+
+        $('#photo-list-3').click(function () {
+            var url = '{{ path('_admin_photo_list') }}';
+            var bc_arr = [
+                ['{{ path('_admin_index') }}', '管理首页'],
+                ['#', '图文管理'],
+                ['*', '杂草识别']
+            ];
+            loadAjax(url, generateBC(bc_arr), '杂草识别');
+        });
+
+        $('#docs-add').click(function () {
+            var url = '{{ path('_admin_docs_add') }}';
+            var bc_arr = [
+                ['{{ path('_admin_index') }}', '管理首页'],
+                ['#', '文献管理'],
+                ['*', '新增文献']
+            ];
+            loadAjax(url, generateBC(bc_arr), '新增文献');
+        });
+
+        $('#docs-list').click(function () {
+            var url = '{{ path('_admin_docs_list') }}';
+            var bc_arr = [
+                ['{{ path('_admin_index') }}', '管理首页'],
+                ['#', '文献管理'],
+                ['*', '文献列表']
+            ];
+            loadAjax(url, generateBC(bc_arr), '文献列表');
+        });
+
+
     });
+
+    /**
+     * 封装 ajax 请求
+     */
+    function loadAjax(url, bc, title) {
+        $.ajax({
+            url: url,
+            method: 'GET',
+            success: function (msg) {
+                $('#page-title').text(title);
+                $('#bread-crumb').html(bc);
+                $('#content').html(msg);
+            }
+        });
+    }
+
+    /**
+     * 封装面包屑
+     * @param bc_arr
+     * @returns {string}
+     */
+    function generateBC(bc_arr) {
+        var bc = '';
+        for (var i = 0; i < bc_arr.length; i++) {
+            if (bc_arr[i][0] == '*') {
+                bc += '<li class="active">' + bc_arr[i][1] + '</li>';
+            } else {
+                bc += '<li><a href="' + bc_arr[i][0] + '">' + bc_arr[i][1] + '</a><span class="divider">/</span></li>';
+            }
+        }
+        return bc;
+    }
 </script>
 
 </body>
 </html>
-
-
