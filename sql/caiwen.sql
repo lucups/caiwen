@@ -1,30 +1,18 @@
 /*==============================================================*/
 /* DBMS name:      MySQL 5.0                                    */
-/* Created on:     2013/12/22 星期日 22:14:37                      */
+/* Created on:     2013/12/27 星期五 1:30:31                       */
 /*==============================================================*/
 
 
-alter table album
-   drop primary key;
-
 drop table if exists album;
 
-alter table docs
-   drop primary key;
-
 drop table if exists docs;
-
-alter table news
-   drop primary key;
 
 drop table if exists news;
 
 drop table if exists photo;
 
 drop table if exists question;
-
-alter table user
-   drop primary key;
 
 drop table if exists user;
 
@@ -33,54 +21,49 @@ drop table if exists user;
 /*==============================================================*/
 create table album
 (
-   album_id             int not null,
+   album_id             int not null auto_increment,
    user_id              int,
-   title                varchar(100)
+   title                varchar(100),
+   primary key (album_id)
 );
-
-alter table album
-   add primary key (album_id);
 
 /*==============================================================*/
 /* Table: docs                                                  */
 /*==============================================================*/
 create table docs
 (
-   docs_id              int not null,
+   docs_id              int not null auto_increment,
    title                varchar(200),
    keywords             varchar(200),
    author               varchar(200),
-   file_path            varchar(200)
+   file_path            varchar(200),
+   primary key (docs_id)
 );
-
-alter table docs
-   add primary key (docs_id);
 
 /*==============================================================*/
 /* Table: news                                                  */
 /*==============================================================*/
 create table news
 (
-   news_id              int not null,
+   news_id              int not null auto_increment,
    user_id              int,
    title                varchar(200),
    content              longtext,
-   create_time          timestamp default CURRENT_TIMESTAMP
+   create_time          timestamp default CURRENT_TIMESTAMP,
+   primary key (news_id)
 );
-
-alter table news
-   add primary key (news_id);
 
 /*==============================================================*/
 /* Table: photo                                                 */
 /*==============================================================*/
 create table photo
 (
-   photo_id             int,
+   photo_id             int not null auto_increment,
    album_id             int,
    image_path           varchar(200),
    title                varchar(200),
-   content              longtext
+   content              longtext,
+   primary key (photo_id)
 );
 
 /*==============================================================*/
@@ -88,13 +71,14 @@ create table photo
 /*==============================================================*/
 create table question
 (
-   question_id          int,
+   question_id          int not null auto_increment,
    user_id              int,
    title                varchar(200),
    content              longtext,
    image_path           varchar(200),
    answer               longtext,
-   create_time          timestamp default CURRENT_TIMESTAMP
+   create_time          timestamp default CURRENT_TIMESTAMP,
+   primary key (question_id)
 );
 
 /*==============================================================*/
@@ -102,17 +86,15 @@ create table question
 /*==============================================================*/
 create table user
 (
-   user_id              int not null,
+   user_id              int not null auto_increment,
    username             varchar(50),
    password             varchar(100),
    email                varchar(100),
    role                 int comment '0: admin
             1: user',
-   create_time          timestamp default CURRENT_TIMESTAMP
+   create_time          timestamp default CURRENT_TIMESTAMP,
+   primary key (user_id)
 );
-
-alter table user
-   add primary key (user_id);
 
 alter table album add constraint FK_Reference_1 foreign key (user_id)
       references user (user_id) on delete restrict on update restrict;

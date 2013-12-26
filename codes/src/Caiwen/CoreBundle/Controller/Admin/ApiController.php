@@ -37,7 +37,9 @@ class ApiController extends Controller {
         $news->setTitle($request->get('title'));
         $news->setContent($request->get('content'));
 
-        //$news_r = $this->
+        $news_r = $this->getDoctrine()->getRepository('CaiwenCoreBundle:News');
+        $news_r->save($news);
+        return new Response('OK');
     }
 
 } 
