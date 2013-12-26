@@ -1,0 +1,48 @@
+<?php
+/**
+ * Created by PhpStorm.
+ * User: Lucups
+ * Date: 13-12-26
+ * Time: 上午12:06
+ */
+
+namespace Caiwen\CoreBundle\Entity;
+
+use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\Validator\Constraints as Assert;
+
+/**
+ * @ORM\Entity(repositoryClass="Caiwen\CoreBundle\Entity\DocsRepository")
+ * @ORM\Table(name="docs")
+ */
+class Docs {
+
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="docs_id", type="integer", nullable=false)
+     * @ORM\Id
+     * @ORM\GeneratedValue(strategy="IDENTITY")
+     */
+    private $docsId;
+
+    /**
+     * @ORM\Column(name="title", type="string", length=200, nullable=false)
+     */
+    private $title;
+
+    /**
+     * @ORM\Column(name="author", type="string", length=200, nullable=false)
+     */
+    private $author;
+
+    /**
+     * @ORM\Column(name="keywords", type="string", length=200, nullable=false)
+     */
+    private $keywords;
+
+    /**
+     * @ORM\Column(name="file_path", type="string", length=200, nullable=false)
+     */
+    private $filePath;
+}
