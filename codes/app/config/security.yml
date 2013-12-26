@@ -10,29 +10,36 @@ security:
         in_memory:
             memory:
                 users:
-                    user:  { password: userpass, roles: [ 'ROLE_USER' ] }
-                    admin: { password: adminpass, roles: [ 'ROLE_ADMIN' ] }
+                    lucups:  { password: kkkk, roles: [ 'ROLE_USER' ] }
+                    admin: { password: admin, roles: [ 'ROLE_ADMIN' ] }
 
     firewalls:
         dev:
             pattern:  ^/(_(profiler|wdt)|css|images|js)/
             security: false
 
-        login:
-            pattern:  ^/demo/secured/login$
-            security: false
-
-        secured_area:
-            pattern:    ^/demo/secured/
+        user_area:
+            pattern:    ^/user/
             form_login:
-                check_path: _security_check
-                login_path: _demo_login
+                check_path: _user_login_check
+                login_path: _user_login
             logout:
-                path:   _demo_logout
-                target: _demo
-            #anonymous: ~
+                path:   _user_logout
+                target: _index
+            anonymous: ~
             #http_basic:
             #    realm: "Secured Demo Area"
+        admin_area:
+            pattern:    ^/admin/
+            form_login:
+                check_path: _admin_login_check
+                login_path: _admin_login
+            logout:
+                path:   _admin_logout
+                target: _admin_login
+            anonymous: ~
 
     access_control:
         #- { path: ^/login, roles: IS_AUTHENTICATED_ANONYMOUSLY, requires_channel: https }
+        - { path: ^/user/login$, roles: IS_AUTHENTICATED_ANONYMOUSLY }
+        - { path: ^/admin/login$, roles: IS_AUTHENTICATED_ANONYMOUSLY }

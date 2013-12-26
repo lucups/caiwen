@@ -1,11 +1,11 @@
 <div class="btn-toolbar">
-    <button class="btn btn-primary"><i class="icon-save"></i> 发布新闻</button>
+    <button class="btn btn-primary" id="btn-submit"><i class="icon-save"></i> 发布新闻</button>
 
     <div class="btn-group">
     </div>
 </div>
 <div class="well">
-    <form class="form-horizontal">
+    <form id="form-news" class="form-horizontal" method="POST" action="{{ path('_api_news_add') }}">
         <div class="control-group">
             <label class="control-label" for="title">标题</label>
 
@@ -23,3 +23,8 @@
         </div>
     </form>
 </div>
+<script>
+    $('#btn-submit').click(function () {
+        $('#form-news').submit();
+    });
+</script>

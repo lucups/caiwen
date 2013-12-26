@@ -10,8 +10,15 @@ namespace Caiwen\CoreBundle\Controller\Admin;
 
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 
+use Symfony\Component\Security\Core\SecurityContext;
+use Symfony\Component\HttpFoundation\Request;
+use Symfony\Component\HttpFoundation\Response;
+
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Template;
+
+use Caiwen\CoreBundle\Entity\User;
+use Caiwen\CoreBundle\Entity\UserRepository;
 
 /**
  * Class HomeController
@@ -26,6 +33,43 @@ class HomeController extends Controller {
      */
     public function indexAction() {
         return array();
+    }
+
+    /**
+     * @Route("/login", name="_admin_login")
+     * @Template()
+     */
+    public function loginAction() {
+        $request = $this->getRequest();
+        $session = $request->getSession();
+
+        // get the login error if there is one
+        if ($request->attributes->has(SecurityContext::AUTHENTICATION_ERROR)) {
+            $error = $request->attributes->get(
+                SecurityContext::AUTHENTICATION_ERROR
+            );
+        } else {
+            $error = $session->get(SecurityContext::AUTHENTICATION_ERROR);
+            $session->remove(SecurityContext::AUTHENTICATION_ERROR);
+        }
+        $message = null;
+        if ($error) $message = $this->get('translator')->trans($error->getMessage());
+        return array(
+            'error' => $error,
+            'message' => $message,
+        );
+    }
+
+    /**
+     * @Route("/login_check", name="_admin_login_check")
+     */
+    public function loginCheckAction() {
+    }
+
+    /**
+     * @Route("/logout", name="_admin_logout")
+     */
+    public function logoutAction() {
     }
 
     /**

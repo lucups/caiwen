@@ -8,7 +8,14 @@
 
 namespace Caiwen\CoreBundle\Entity;
 
+use Doctrine\ORM\EntityRepository;
 
-class NewsRepository {
+class NewsRepository extends EntityRepository {
 
-} 
+    public function save($news) {
+        $this->getEntityManager()->persist($news);
+        $this->getEntityManager()->flush();
+        return $news->getNewsId();
+    }
+
+}
