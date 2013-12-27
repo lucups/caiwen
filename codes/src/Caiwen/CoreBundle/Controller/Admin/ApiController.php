@@ -10,7 +10,6 @@ namespace Caiwen\CoreBundle\Controller\Admin;
 
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 
-
 use Symfony\Component\Security\Core\SecurityContext;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Template;
@@ -18,6 +17,9 @@ use Sensio\Bundle\FrameworkExtraBundle\Configuration\Template;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\HttpFoundation\Request;
 
+use Caiwen\CoreBundle\Common\AjaxResponse as AR;
+use Caiwen\CoreBundle\Entity\User;
+use Caiwen\CoreBundle\Entity\UserRepository;
 use Caiwen\CoreBundle\Entity\News;
 use Caiwen\CoreBundle\Entity\NewsRepository;
 
@@ -39,7 +41,11 @@ class ApiController extends Controller {
 
         $news_r = $this->getDoctrine()->getRepository('CaiwenCoreBundle:News');
         $news_r->save($news);
-        return new Response('OK');
+        return $this->makeResponse(AR::ERR_SUCCESS);
+    }
+
+    private function makeResponse($error_id = AR::ERR_SUCCESS, $data = null) {
+        return new Response(AR::encode($error_id, $data));
     }
 
 } 
