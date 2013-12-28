@@ -45,10 +45,11 @@ class ApiController extends Controller {
     }
 
     /**
-     * @Route("/news-delete", name="_api_news_delete")
+     * @Route("/news-delete/{news_id}", name="_api_news_delete")
      */
-    public function newsDeleteAction(Request $request){
+    public function newsDeleteAction($news_id){
         $news_r = $this->getDoctrine()->getRepository('CaiwenCoreBundle:News');
+        $news = $news_r->findOneByNewsId($news_id);
         $this->makeResponse(AR::ERR_SUCCESS);
     }
 
