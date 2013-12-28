@@ -8,7 +8,17 @@
 
 namespace Caiwen\CoreBundle\Entity;
 
+use Doctrine\ORM\EntityRepository;
 
 class UserRepository {
+    public function save($user) {
+    $this->getEntityManager()->persist($user);
+    $this->getEntityManager()->flush();
+    return $user->getNewsId();
+}
 
-} 
+    public function delete($user) {
+        $this->getEntityManager()->remove($user);
+        $this->getEntityManager()->flush();
+    }
+}

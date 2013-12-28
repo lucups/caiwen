@@ -44,6 +44,14 @@ class ApiController extends Controller {
         return $this->makeResponse(AR::ERR_SUCCESS);
     }
 
+    /**
+     * @Route("/news-delete", name="_api_news_delete")
+     */
+    public function newsDeleteAction(Request $request){
+        $news_r = $this->getDoctrine()->getRepository('CaiwenCoreBundle:News');
+        $this->makeResponse(AR::ERR_SUCCESS);
+    }
+
     private function makeResponse($error_id = AR::ERR_SUCCESS, $data = null) {
         return new Response(AR::encode($error_id, $data));
     }

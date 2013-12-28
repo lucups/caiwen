@@ -18,4 +18,9 @@ class NewsRepository extends EntityRepository {
         return $news->getNewsId();
     }
 
+    public function delete($news){
+        $this->getEntityManager()->remove($news);
+        $this->getEntityManager()->flush();
+    }
+
 }

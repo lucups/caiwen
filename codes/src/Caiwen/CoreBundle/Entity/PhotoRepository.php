@@ -8,7 +8,19 @@
 
 namespace Caiwen\CoreBundle\Entity;
 
+use Doctrine\ORM\EntityRepository;
 
 class PhotoRepository {
+
+    public function save($photo) {
+        $this->getEntityManager()->persist($photo);
+        $this->getEntityManager()->flush();
+        return $photo->getNewsId();
+    }
+
+    public function delete($photo) {
+        $this->getEntityManager()->remove($photo);
+        $this->getEntityManager()->flush();
+    }
 
 } 
