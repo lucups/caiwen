@@ -29,8 +29,12 @@ class FileController extends Controller {
     /**
      * @Route("/upload", name="_file_upload")
      */
-    public function upload(){
+    public function uploadAction(){
         return $this->makeResponse(AR::ERR_SUCCESS);
+    }
+
+    private function up(){
+        return;
     }
 
     private function makeResponse($error_id = AR::ERR_SUCCESS, $data = null) {

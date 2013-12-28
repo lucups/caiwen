@@ -16,7 +16,7 @@ class DefaultController extends Controller {
      * @Template()
      */
     public function indexAction() {
-        $name = "hello";
+        $name = "Hello, Caiwen !";
         return array('name' => $name);
     }
 }
