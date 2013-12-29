@@ -53,6 +53,13 @@ class ApiController extends Controller {
         $this->makeResponse(AR::ERR_SUCCESS);
     }
 
+    /**
+     * @Route("/docs-add", name="_api_docs_add")
+     */
+    public function docsAddAction(){
+        return $this->makeResponse(AR::ERR_SUCCESS);
+    }
+
     private function makeResponse($error_id = AR::ERR_SUCCESS, $data = null) {
         return new Response(AR::encode($error_id, $data));
     }
