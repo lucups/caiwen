@@ -17,7 +17,11 @@ class NewsController extends Controller {
      * @Template()
      */
     public function listAction() {
-        return array();
+        $news_r = $this->getDoctrine()->getRepository('CaiwenCoreBundle:News');
+        $newses = $news_r->findAll();
+        return array(
+            'newses' => $newses,
+        );
     }
 
     /**
