@@ -42,4 +42,13 @@ class DefaultController extends Controller {
             'info' => $info,
         );
     }
+
+    /**
+     * @Route("/upload", name="_upload")
+     * @Template()
+     */
+    public function uploadAction(){
+        return array();
+    }
+
 }

@@ -1,0 +1,38 @@
+{% extends "CaiwenCoreBundle::layout.html.twig" %}
+
+{% block content %}
+    <div class="container" style="margin-top: 40px; background: whitesmoke;">
+        <div class="span12">
+            <h1>Upload Test Page</h1>
+
+            <form id="form-upload" method="POST" enctype="multipart/form-data" action="{{ path('_file_upload') }}">
+                <input id="input-image" type="file" name="img"/>
+            </form>
+            <button type="button" id="btn-upload" class="btn btn-primary">Submit</button>
+        </div>
+    </div>
+{% endblock %}
+
+{% block js %}
+    <script type="text/javascript" src="{{ asset('js/jquery-form/jquery.form.min.js') }}"></script>
+    <script type="text/javascript">
+        $(document).ready(function () {
+            $(document).delegate('#btn-upload', 'click', function () {
+                // alert('c');
+                $('#form-upload').ajaxSubmit({
+                    dataType: 'json',
+                    beforeSubmit: function () {
+                    },
+                    success: function (json) {
+                        alert('aaa');
+                        console.log(json);
+                        alert('bbb');
+                    },
+                    error: function (xhr) { //上传失败
+                        console.log(xhr.responseText); //返回失败信息
+                    }
+                });
+            });
+        });
+    </script>
+{% endblock %}
