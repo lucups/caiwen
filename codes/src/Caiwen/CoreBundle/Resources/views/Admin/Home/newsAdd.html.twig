@@ -29,8 +29,7 @@
         var content = $('#content').val();
 
         Messenger.options = {
-            extraClasses: 'messenger-fixed messenger-theme-future messenger-on-bottom',
-            theme: 'future'
+            extraClasses: 'messenger-fixed messenger-theme-future messenger-on-bottom messenger-on-right'
         }
 
         $.ajax({
@@ -39,11 +38,11 @@
             data: 'title=' + title + '&content=' + content,
             success: function (msg) {
                 Messenger().post({
-                    message: "Weeeeee",
-                    hideAfter: 300,
+                    message: '新闻添加成功！',
+                    hideAfter: 3,
                     hideOnNavigate: true
                 });
-
+                loadNewsListPage();
             }
         });
     });

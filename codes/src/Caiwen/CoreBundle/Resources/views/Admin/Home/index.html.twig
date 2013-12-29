@@ -177,13 +177,7 @@
         });
 
         $('#news-list').click(function () {
-            var url = '{{ path('_admin_news_list') }}';
-            var bc_arr = [
-                ['{{ path('_admin_index') }}', '管理首页'],
-                ['#', '新闻管理'],
-                ['*', '新闻列表']
-            ];
-            loadAjax(url, generateBC(bc_arr), '新闻列表');
+            loadNewsListPage();
         });
 
         $('#faq-wait').click(function () {
@@ -266,41 +260,10 @@
             loadAjax(url, generateBC(bc_arr), '文献列表');
         });
 
-
     });
-
-    /**
-     * 封装 ajax 请求
-     */
-    function loadAjax(url, bc, title) {
-        $.ajax({
-            url: url,
-            method: 'GET',
-            success: function (msg) {
-                $('#page-title').text(title);
-                $('#bread-crumb').html(bc);
-                $('#body-content').html(msg);
-            }
-        });
-    }
-
-    /**
-     * 封装面包屑
-     * @param bc_arr
-     * @returns {string}
-     */
-    function generateBC(bc_arr) {
-        var bc = '';
-        for (var i = 0; i < bc_arr.length; i++) {
-            if (bc_arr[i][0] == '*') {
-                bc += '<li class="active">' + bc_arr[i][1] + '</li>';
-            } else {
-                bc += '<li><a href="' + bc_arr[i][0] + '">' + bc_arr[i][1] + '</a><span class="divider">/</span></li>';
-            }
-        }
-        return bc;
-    }
 </script>
+
+{% include "CaiwenCoreBundle:Admin:Include/js.html.twig" %}
 
 </body>
 </html>
