@@ -138,7 +138,7 @@
 
     <div class="container-fluid">
         <div class="row-fluid">
-            <div id="content">
+            <div id="body-content">
                 <p style="margin-top:10%;">欢迎来到 菜问 后台管理系统！</p>
             </div>
             <footer>
@@ -275,7 +275,7 @@
             success: function (msg) {
                 $('#page-title').text(title);
                 $('#bread-crumb').html(bc);
-                $('#content').html(msg);
+                $('#body-content').html(msg);
             }
         });
     }

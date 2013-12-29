@@ -85,7 +85,11 @@ class HomeController extends Controller {
      * @Template()
      */
     public function newsListAction() {
-        return array();
+        $news_r = $this->getDoctrine()->getRepository('CaiwenCoreBundle:News');
+        $newses = $news_r->findAll();
+        return array(
+            'newses' => $newses,
+        );
     }
 
     /**

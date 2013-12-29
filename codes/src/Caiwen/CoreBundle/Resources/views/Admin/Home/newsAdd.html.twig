@@ -25,6 +25,15 @@
 </div>
 <script>
     $('#btn-submit').click(function () {
-        $('#form-news').submit();
+        var title = $('#title').val();
+        var content = $('#content').val();
+        $.ajax({
+            url: '{{ path('_api_news_add') }}',
+            method: 'POST',
+            data: 'title=' + title + '&content=' + content,
+            success: function (msg) {
+                console.log(msg);
+            }
+        });
     });
 </script>

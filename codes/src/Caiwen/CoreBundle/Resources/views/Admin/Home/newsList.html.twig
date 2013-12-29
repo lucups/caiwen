@@ -18,11 +18,11 @@
         </tr>
         </thead>
         <!-- 数据 -->
-        {% for i in 1..10 %}
+        {% for news in newses %}
         <tbody>
         <tr>
-            <td>{{ i }}</td>
-            <td>欢迎任何形式的转载，但请务必注明出处，尊重他人劳动共创开源社区</td>
+            <td>{{ news.newsId }}</td>
+            <td><a href="{{ path('_news_view', {news_id:news.newsId }) }}" target="_blank">{{ news.title }}</td>
             <td>2013-10-22 09:18</td>
             <td>admin</td>
             <td>

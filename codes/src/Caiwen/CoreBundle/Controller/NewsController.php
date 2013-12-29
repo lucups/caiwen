@@ -25,8 +25,10 @@ class NewsController extends Controller {
      * @Template()
      */
     public function viewAction($news_id) {
+        $news_r = $this->getDoctrine()->getRepository('CaiwenCoreBundle:News');
+        $news = $news_r->findOneByNewsId($news_id);
         return array(
-            'news_id' => $news_id,
+            'news' => $news,
         );
     }
 
