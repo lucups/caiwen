@@ -19,7 +19,7 @@ use Caiwen\CoreBundle\Common\Utils;
  * This class is used for file uploads API.
  * It has nothing to do with database.
  *
- * @package Medeolinx\TW\CoreBundle\Entity
+ * @package Caiwen\CoreBundle\Entity
  */
 class File {
 
@@ -76,7 +76,7 @@ class File {
     }
 
     protected function getUploadRootDir() {
-        return __DIR__ . '/../../../../../web/' . $this->getUploadDir();
+        return __DIR__ . '/../../../../web/' . $this->getUploadDir();
     }
 
     protected function getUploadDir() {
