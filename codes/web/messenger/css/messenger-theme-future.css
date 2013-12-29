@@ -275,6 +275,7 @@ ul.messenger-theme-future .messenger-message {
   text-shadow: 0px 1px #111111;
   font-weight: 500;
   padding: 10px 30px 13px 65px;
+  margin-top: 0px;
 }
 /* line 36, ../../src/sass/messenger-theme-future.sass */
 ul.messenger-theme-future .messenger-message a {
