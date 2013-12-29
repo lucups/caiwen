@@ -27,12 +27,23 @@
     $('#btn-submit').click(function () {
         var title = $('#title').val();
         var content = $('#content').val();
+
+        Messenger.options = {
+            extraClasses: 'messenger-fixed messenger-theme-future messenger-on-bottom',
+            theme: 'future'
+        }
+
         $.ajax({
             url: '{{ path('_api_news_add') }}',
             method: 'POST',
             data: 'title=' + title + '&content=' + content,
             success: function (msg) {
-                console.log(msg);
+                Messenger().post({
+                    message: "Weeeeee",
+                    hideAfter: 300,
+                    hideOnNavigate: true
+                });
+
             }
         });
     });
