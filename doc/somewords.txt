@@ -1,0 +1,102 @@
+version controller system
+
+版本控制系统 VCS
+hg
+git (我们用的)
+svn
+cvs
+vss(ms)
+
+-----------------------------------
+运行环境
+
+Nginx  (http server)(同类软件：IIS, Apache http server, Tomcat, JBoss....)
+PHP 5.4
+MySQL
+
+框架
+bootstrap(user:3 admin:2) fontawesome
+symfony
+
+------------------------------------
+项目结构
+
+bin win/linux 脚本（导入数据库）
+codes/ 源码目录(symfony root)
+	app/ 项目配置、缓存、日志
+		cache/
+		config/
+		logs/
+		Resources/
+	bin/ 不用管
+	src/ 源码
+		Acme/ symfony自带的 demo
+		Caiwen/
+			CoreBundle/
+				Common/  公共函数库
+				Controller/ 控制器
+				DI/ 依赖注入
+				Entity/ 实体，模型
+				Resource/ 资源
+					config/
+					doc/
+					public/
+					trans../
+					views/ 	视图， Twig模板引擎 （其他模板引擎：Smarty, http://www.zhihu.com/question/21452677/answer/19466884）
+				Tests
+
+	vendor/ 框架所需要的模块
+	web/ js css image
+
+
+config/ 项目部署配置
+doc/ 文档
+sql/ 数据库设计文件
+webfront/ 前台
+
+----------------------------------
+MVC
+
+M: Model 模型
+
+V: View 视图
+
+C: Controller 控制器
+
+----------------------------------
+ORM
+Object-Relation-Mapping
+对象关系映射
+数据持久化
+
+----------------------------------
+数据格式
+XML  html
+JSON js
+YAML .yml
+
+-----------------------------------
+配置  www.caiwen.org
+
+windows
+C:\Windows\System32\drivers\etc\hosts
+
+linux
+/etc/hosts
+
+添加这一行：
+127.0.0.1	www.caiwen.org
+
+
+-----------------------------------
+MySQL（开源，免费 ）
+
+timestamp 时间戳
+2012-12-31 00:00:00
+
+SQL Server（收费的，很贵的，微软的）
+
+Power Designer （数据库设计工具，工程项目设计工具）
+
+-----------------------------------
+Twig 

@@ -19,4 +19,27 @@ class DefaultController extends Controller {
         $name = "Hello, Caiwen !";
         return array('name' => $name);
     }
+
+    /**
+     * @Route("/personal-info/{name}", name="_personal_info")
+     * @Template()
+     */
+    public function personalInfoAction($name){
+        $info = array();
+        if($name == 'ws'){
+            $info = array(
+                'name' => '王双 ',
+                'title' => '大米饭',
+            );
+        }else if($name == 'wnp'){
+            $info = array(
+                'name' => '王念培 ',
+                'title' => '小米粥',
+            );
+        }
+
+        return array(
+            'info' => $info,
+        );
+    }
 }
