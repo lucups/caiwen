@@ -181,23 +181,11 @@
         });
 
         $('#faq-wait').click(function () {
-            var url = '{{ path('_admin_faq_wait') }}';
-            var bc_arr = [
-                ['{{ path('_admin_index') }}', '管理首页'],
-                ['#', '问答管理'],
-                ['*', '等待回答']
-            ];
-            loadAjax(url, generateBC(bc_arr), '等待回答');
+            loadFaqWaitPage();
         });
 
         $('#faq-list').click(function () {
-            var url = '{{ path('_admin_faq_list') }}';
-            var bc_arr = [
-                ['{{ path('_admin_index') }}', '管理首页'],
-                ['#', '问答管理'],
-                ['*', '问答列表']
-            ];
-            loadAjax(url, generateBC(bc_arr), '问答列表');
+            loadFaqListPage();
         });
 
         $('#photo-add').click(function () {
@@ -211,33 +199,15 @@
         });
 
         $('#photo-list-1').click(function () {
-            var url = '{{ path('_admin_photo_list') }}';
-            var bc_arr = [
-                ['{{ path('_admin_index') }}', '管理首页'],
-                ['#', '图文管理'],
-                ['*', '白菜病害']
-            ];
-            loadAjax(url, generateBC(bc_arr), '白菜病害');
+            loadPhotoListPage(1);
         });
 
         $('#photo-list-2').click(function () {
-            var url = '{{ path('_admin_photo_list') }}';
-            var bc_arr = [
-                ['{{ path('_admin_index') }}', '管理首页'],
-                ['#', '图文管理'],
-                ['*', '白菜虫害']
-            ];
-            loadAjax(url, generateBC(bc_arr), '白菜虫害');
+            loadPhotoListPage(2);
         });
 
         $('#photo-list-3').click(function () {
-            var url = '{{ path('_admin_photo_list') }}';
-            var bc_arr = [
-                ['{{ path('_admin_index') }}', '管理首页'],
-                ['#', '图文管理'],
-                ['*', '杂草识别']
-            ];
-            loadAjax(url, generateBC(bc_arr), '杂草识别');
+            loadPhotoListPage(3);
         });
 
         $('#docs-add').click(function () {
@@ -251,13 +221,7 @@
         });
 
         $('#docs-list').click(function () {
-            var url = '{{ path('_admin_docs_list') }}';
-            var bc_arr = [
-                ['{{ path('_admin_index') }}', '管理首页'],
-                ['#', '文献管理'],
-                ['*', '文献列表']
-            ];
-            loadAjax(url, generateBC(bc_arr), '文献列表');
+            loadDocsListPage();
         });
 
     });

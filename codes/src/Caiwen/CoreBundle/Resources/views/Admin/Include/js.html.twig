@@ -11,18 +11,55 @@
     }
 
     function loadPhotoListPage(album_id){
-        var url;
-        var bc_arr;
-        var title;
+        var title = '';
         switch (album_id){
             case 1:
+                title = '白菜病害';
                 break;
             case 2:
+                title = '白菜虫害';
                 break;
             case 3:
+                title = '杂草识别';
                 break;
         }
+        var url = '{{ path('_admin_photo_list') }}';
+        var bc_arr = [
+            ['{{ path('_admin_index') }}', '管理首页'],
+            ['#', '图文管理'],
+            ['*', title]
+        ];
         loadAjax(url, generateBC(bc_arr), title);
+    }
+
+    function loadDocsListPage(){
+        var url = '{{ path('_admin_docs_list') }}';
+        var bc_arr = [
+            ['{{ path('_admin_index') }}', '管理首页'],
+            ['#', '文献管理'],
+            ['*', '文献列表']
+        ];
+        loadAjax(url, generateBC(bc_arr), '文献列表');
+    }
+
+    function loadFaqListPage(){
+        var url = '{{ path('_admin_faq_list') }}';
+        var bc_arr = [
+            ['{{ path('_admin_index') }}', '管理首页'],
+            ['#', '问答管理'],
+            ['*', '问答列表']
+        ];
+        loadAjax(url, generateBC(bc_arr), '问答列表');
+    }
+
+    function loadFaqWaitPage(){
+        var url = '{{ path('_admin_faq_wait') }}';
+        var bc_arr = [
+            ['{{ path('_admin_index') }}', '管理首页'],
+            ['#', '问答管理'],
+            ['*', '等待回答']
+        ];
+        loadAjax(url, generateBC(bc_arr), '等待回答');
     }
 
     /**
