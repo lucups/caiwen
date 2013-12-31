@@ -4,10 +4,7 @@
     <div class="row marketing" style="margin-top:0px;">
         <div class="col-12">
             <h2>"呵呵" 的文献搜索结果</h2>
-            <ol class="breadcrumb">
-                <li><a href="index.html">菜问首页</a></li>
-                <li><a href="docs-search.html">文献搜索</a></li>
-                <li class="active">搜索结果</li>
+            <ol class="breadcrumb" id="bc-list">
             </ol>
             <hr>
         </div>
@@ -25,4 +22,14 @@
         </div>
 
     </div>
+{% endblock %}
+
+{% block js %}
+    <script type="text/javascript">
+        $('#bc-list').html(generateBC([
+            ['{{ path('_index') }}', '菜问首页'],
+            ['{{ path('_docs_search') }}', '文献搜索'],
+            ['*', '搜索结果']
+        ]));
+    </script>
 {% endblock %}
