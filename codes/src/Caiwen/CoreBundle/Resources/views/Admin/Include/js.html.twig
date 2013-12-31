@@ -10,9 +10,9 @@
         loadAjax(url, generateBC(bc_arr), '新闻列表');
     }
 
-    function loadPhotoListPage(album_id){
+    function loadPhotoListPage(album_id) {
         var title = '';
-        switch (album_id){
+        switch (album_id) {
             case 1:
                 title = '白菜病害';
                 break;
@@ -32,7 +32,7 @@
         loadAjax(url, generateBC(bc_arr), title);
     }
 
-    function loadDocsListPage(){
+    function loadDocsListPage() {
         var url = '{{ path('_admin_docs_list') }}';
         var bc_arr = [
             ['{{ path('_admin_index') }}', '管理首页'],
@@ -42,7 +42,7 @@
         loadAjax(url, generateBC(bc_arr), '文献列表');
     }
 
-    function loadFaqListPage(){
+    function loadFaqListPage() {
         var url = '{{ path('_admin_faq_list') }}';
         var bc_arr = [
             ['{{ path('_admin_index') }}', '管理首页'],
@@ -52,7 +52,7 @@
         loadAjax(url, generateBC(bc_arr), '问答列表');
     }
 
-    function loadFaqWaitPage(){
+    function loadFaqWaitPage() {
         var url = '{{ path('_admin_faq_wait') }}';
         var bc_arr = [
             ['{{ path('_admin_index') }}', '管理首页'],
@@ -60,6 +60,36 @@
             ['*', '等待回答']
         ];
         loadAjax(url, generateBC(bc_arr), '等待回答');
+    }
+
+    function loadNewsAddPage() {
+        var url = '{{ path('_admin_news_add') }}';
+        var bc_arr = [
+            ['{{ path('_admin_index') }}', '管理首页'],
+            ['#', '新闻管理'],
+            ['*', '添加新闻']
+        ];
+        loadAjax(url, generateBC(bc_arr), '添加新闻');
+    }
+
+    function loadPhotoAddPage() {
+        var url = '{{ path('_admin_photo_add') }}';
+        var bc_arr = [
+            ['{{ path('_admin_index') }}', '管理首页'],
+            ['#', '图文管理'],
+            ['*', '新增图文']
+        ];
+        loadAjax(url, generateBC(bc_arr), '新增图文');
+    }
+
+    function loadDocsAddPage() {
+        var url = '{{ path('_admin_docs_add') }}';
+        var bc_arr = [
+            ['{{ path('_admin_index') }}', '管理首页'],
+            ['#', '文献管理'],
+            ['*', '新增文献']
+        ];
+        loadAjax(url, generateBC(bc_arr), '新增文献');
     }
 
     /**

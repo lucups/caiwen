@@ -159,6 +159,7 @@
 <script src="{{ asset('lib/bootstrap/js/bootstrap.js') }}"></script>
 <script src="{{ asset('messenger/js/messenger.min.js') }}"></script>
 <script src="{{ asset('messenger/js/messenger-theme-future.js') }}"></script>
+{% include "CaiwenCoreBundle:Admin:Include/js.html.twig" %}
 <script type="text/javascript">
     $("[rel=tooltip]").tooltip();
     $(function () {
@@ -167,13 +168,7 @@
         });
 
         $('#news-add').click(function () {
-            var url = '{{ path('_admin_news_add') }}';
-            var bc_arr = [
-                ['{{ path('_admin_index') }}', '管理首页'],
-                ['#', '新闻管理'],
-                ['*', '添加新闻']
-            ];
-            loadAjax(url, generateBC(bc_arr), '添加新闻');
+            loadNewsAddPage();
         });
 
         $('#news-list').click(function () {
@@ -189,13 +184,7 @@
         });
 
         $('#photo-add').click(function () {
-            var url = '{{ path('_admin_photo_add') }}';
-            var bc_arr = [
-                ['{{ path('_admin_index') }}', '管理首页'],
-                ['#', '图文管理'],
-                ['*', '新增图文']
-            ];
-            loadAjax(url, generateBC(bc_arr), '新增图文');
+            loadPhotoAddPage();
         });
 
         $('#photo-list-1').click(function () {
@@ -211,13 +200,7 @@
         });
 
         $('#docs-add').click(function () {
-            var url = '{{ path('_admin_docs_add') }}';
-            var bc_arr = [
-                ['{{ path('_admin_index') }}', '管理首页'],
-                ['#', '文献管理'],
-                ['*', '新增文献']
-            ];
-            loadAjax(url, generateBC(bc_arr), '新增文献');
+            loadDocsAddPage();
         });
 
         $('#docs-list').click(function () {
@@ -230,8 +213,5 @@
         extraClasses: 'messenger-fixed messenger-theme-future messenger-on-bottom messenger-on-right'
     }
 </script>
-
-{% include "CaiwenCoreBundle:Admin:Include/js.html.twig" %}
-
 </body>
 </html>
