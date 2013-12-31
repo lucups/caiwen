@@ -4,10 +4,7 @@
     <div class="row marketing" style="margin-top:0px;">
         <div class="col-12">
             <h2>{{ news.title }}</h2>
-            <ol class="breadcrumb">
-                <li><a href="index.html">菜问首页</a></li>
-                <li><a href="news-list.html">新闻列表</a></li>
-                <li class="active">查看新闻</li>
+            <ol class="breadcrumb" id="bc-list">
             </ol>
             <hr>
         </div>
@@ -18,4 +15,14 @@
         </div>
 
     </div>
+{% endblock %}
+
+{% block js %}
+    <script type="text/javascript">
+        $('#bc-list').html(generateBC([
+            ['{{ path('_index') }}', '菜问首页'],
+            ['{{ path('_news_list') }}', '新闻列表'],
+            ['*', '查看新闻']
+        ]));
+    </script>
 {% endblock %}

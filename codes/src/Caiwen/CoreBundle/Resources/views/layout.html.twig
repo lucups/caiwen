@@ -66,6 +66,24 @@
 ================================================== -->
 <script src="{{ asset('js/jquery-1.8.0.min.js') }}"></script>
 <script src="{{ asset('bootstrap/js/bootstrap.min.js') }}"></script>
+<script type="text/javascript">
+    /**
+     * 封装面包屑
+     * @param bc_arr
+     * @returns {string}
+     */
+    function generateBC(bc_arr) {
+        var bc = '';
+        for (var i = 0; i < bc_arr.length; i++) {
+            if (bc_arr[i][0] == '*') {
+                bc += '<li class="active">' + bc_arr[i][1] + '</li>';
+            } else {
+                bc += '<li><a href="' + bc_arr[i][0] + '">' + bc_arr[i][1] + '</a><span class="divider">/</span></li>';
+            }
+        }
+        return bc;
+    }
+</script>
 {% block js %}
 {% endblock %}
 </body>
