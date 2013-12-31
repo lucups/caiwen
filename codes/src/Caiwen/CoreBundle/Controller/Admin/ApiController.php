@@ -22,6 +22,7 @@ use Caiwen\CoreBundle\Entity\User;
 use Caiwen\CoreBundle\Entity\UserRepository;
 use Caiwen\CoreBundle\Entity\News;
 use Caiwen\CoreBundle\Entity\NewsRepository;
+use Caiwen\CoreBundle\Entity\Photo;
 
 /**
  * Class ApiController
@@ -57,6 +58,27 @@ class ApiController extends Controller {
      * @Route("/docs-add", name="_api_docs_add")
      */
     public function docsAddAction(){
+        return $this->makeResponse(AR::ERR_SUCCESS);
+    }
+
+    /**
+     * @Route("/photo-add", name="_api_photo_add")
+     */
+    public function photoAddAction(Request $request){
+
+        $album_id = $request->get('album_id');
+        $title = $request->get('title');
+        $content = $request->get('content');
+        $image_path = $request->get('image_path');
+
+        $photo = new Photo();
+        $photo->setAlbumId($album_id);
+        $photo->setTitle($title);
+        $photo->setContent($content);
+        $photo->setImagePath($image_path);
+
+        $photo_r = $this->getDoctrine()->getRepository('CaiwenCoreBundle:Photo');
+        $photo_r->save($photo);
         return $this->makeResponse(AR::ERR_SUCCESS);
     }
 
