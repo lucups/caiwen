@@ -66,10 +66,9 @@ class Question {
     /**
      * Get questionId
      *
-     * @return integer 
+     * @return integer
      */
-    public function getQuestionId()
-    {
+    public function getQuestionId() {
         return $this->questionId;
     }
 
@@ -79,8 +78,7 @@ class Question {
      * @param string $imagePath
      * @return Question
      */
-    public function setImagePath($imagePath)
-    {
+    public function setImagePath($imagePath) {
         $this->imagePath = $imagePath;
 
         return $this;
@@ -89,10 +87,9 @@ class Question {
     /**
      * Get imagePath
      *
-     * @return string 
+     * @return string
      */
-    public function getImagePath()
-    {
+    public function getImagePath() {
         return $this->imagePath;
     }
 
@@ -102,8 +99,7 @@ class Question {
      * @param string $title
      * @return Question
      */
-    public function setTitle($title)
-    {
+    public function setTitle($title) {
         $this->title = $title;
 
         return $this;
@@ -112,10 +108,9 @@ class Question {
     /**
      * Get title
      *
-     * @return string 
+     * @return string
      */
-    public function getTitle()
-    {
+    public function getTitle() {
         return $this->title;
     }
 
@@ -125,8 +120,7 @@ class Question {
      * @param string $content
      * @return Question
      */
-    public function setContent($content)
-    {
+    public function setContent($content) {
         $this->content = $content;
 
         return $this;
@@ -135,10 +129,9 @@ class Question {
     /**
      * Get content
      *
-     * @return string 
+     * @return string
      */
-    public function getContent()
-    {
+    public function getContent() {
         return $this->content;
     }
 
@@ -148,8 +141,7 @@ class Question {
      * @param string $answer
      * @return Question
      */
-    public function setAnswer($answer)
-    {
+    public function setAnswer($answer) {
         $this->answer = $answer;
 
         return $this;
@@ -158,10 +150,9 @@ class Question {
     /**
      * Get answer
      *
-     * @return string 
+     * @return string
      */
-    public function getAnswer()
-    {
+    public function getAnswer() {
         return $this->answer;
     }
 
@@ -171,8 +162,7 @@ class Question {
      * @param \DateTime $createTime
      * @return Question
      */
-    public function setCreateTime($createTime)
-    {
+    public function setCreateTime($createTime) {
         $this->createTime = $createTime;
 
         return $this;
@@ -181,10 +171,9 @@ class Question {
     /**
      * Get createTime
      *
-     * @return \DateTime 
+     * @return \DateTime
      */
-    public function getCreateTime()
-    {
+    public function getCreateTime() {
         return $this->createTime;
     }
 
@@ -194,8 +183,7 @@ class Question {
      * @param \Caiwen\CoreBundle\Entity\User $user
      * @return Question
      */
-    public function setUser(\Caiwen\CoreBundle\Entity\User $user = null)
-    {
+    public function setUser(\Caiwen\CoreBundle\Entity\User $user = null) {
         $this->user = $user;
 
         return $this;
@@ -204,10 +192,9 @@ class Question {
     /**
      * Get user
      *
-     * @return \Caiwen\CoreBundle\Entity\User 
+     * @return \Caiwen\CoreBundle\Entity\User
      */
-    public function getUser()
-    {
+    public function getUser() {
         return $this->user;
     }
 }

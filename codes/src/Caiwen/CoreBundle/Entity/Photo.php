@@ -49,10 +49,9 @@ class Photo {
     /**
      * Get photoId
      *
-     * @return integer 
+     * @return integer
      */
-    public function getPhotoId()
-    {
+    public function getPhotoId() {
         return $this->photoId;
     }
 
@@ -62,8 +61,7 @@ class Photo {
      * @param integer $albumId
      * @return Photo
      */
-    public function setAlbumId($albumId)
-    {
+    public function setAlbumId($albumId) {
         $this->albumId = $albumId;
 
         return $this;
@@ -72,10 +70,9 @@ class Photo {
     /**
      * Get albumId
      *
-     * @return integer 
+     * @return integer
      */
-    public function getAlbumId()
-    {
+    public function getAlbumId() {
         return $this->albumId;
     }
 
@@ -85,8 +82,7 @@ class Photo {
      * @param string $imagePath
      * @return Photo
      */
-    public function setImagePath($imagePath)
-    {
+    public function setImagePath($imagePath) {
         $this->imagePath = $imagePath;
 
         return $this;
@@ -95,10 +91,9 @@ class Photo {
     /**
      * Get imagePath
      *
-     * @return string 
+     * @return string
      */
-    public function getImagePath()
-    {
+    public function getImagePath() {
         return $this->imagePath;
     }
 
@@ -108,8 +103,7 @@ class Photo {
      * @param string $title
      * @return Photo
      */
-    public function setTitle($title)
-    {
+    public function setTitle($title) {
         $this->title = $title;
 
         return $this;
@@ -118,10 +112,9 @@ class Photo {
     /**
      * Get title
      *
-     * @return string 
+     * @return string
      */
-    public function getTitle()
-    {
+    public function getTitle() {
         return $this->title;
     }
 
@@ -131,8 +124,7 @@ class Photo {
      * @param string $content
      * @return Photo
      */
-    public function setContent($content)
-    {
+    public function setContent($content) {
         $this->content = $content;
 
         return $this;
@@ -141,10 +133,9 @@ class Photo {
     /**
      * Get content
      *
-     * @return string 
+     * @return string
      */
-    public function getContent()
-    {
+    public function getContent() {
         return $this->content;
     }
 }

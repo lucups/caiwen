@@ -54,10 +54,9 @@ class News {
     /**
      * Get newsId
      *
-     * @return integer 
+     * @return integer
      */
-    public function getNewsId()
-    {
+    public function getNewsId() {
         return $this->newsId;
     }
 
@@ -67,8 +66,7 @@ class News {
      * @param string $title
      * @return News
      */
-    public function setTitle($title)
-    {
+    public function setTitle($title) {
         $this->title = $title;
 
         return $this;
@@ -77,10 +75,9 @@ class News {
     /**
      * Get title
      *
-     * @return string 
+     * @return string
      */
-    public function getTitle()
-    {
+    public function getTitle() {
         return $this->title;
     }
 
@@ -90,8 +87,7 @@ class News {
      * @param string $content
      * @return News
      */
-    public function setContent($content)
-    {
+    public function setContent($content) {
         $this->content = $content;
 
         return $this;
@@ -100,10 +96,9 @@ class News {
     /**
      * Get content
      *
-     * @return string 
+     * @return string
      */
-    public function getContent()
-    {
+    public function getContent() {
         return $this->content;
     }
 
@@ -113,8 +108,7 @@ class News {
      * @param \DateTime $createTime
      * @return News
      */
-    public function setCreateTime($createTime)
-    {
+    public function setCreateTime($createTime) {
         $this->createTime = $createTime;
 
         return $this;
@@ -123,10 +117,9 @@ class News {
     /**
      * Get createTime
      *
-     * @return \DateTime 
+     * @return \DateTime
      */
-    public function getCreateTime()
-    {
+    public function getCreateTime() {
         return $this->createTime;
     }
 
@@ -136,8 +129,7 @@ class News {
      * @param \Caiwen\CoreBundle\Entity\User $user
      * @return News
      */
-    public function setUser(\Caiwen\CoreBundle\Entity\User $user = null)
-    {
+    public function setUser(\Caiwen\CoreBundle\Entity\User $user = null) {
         $this->user = $user;
 
         return $this;
@@ -146,10 +138,9 @@ class News {
     /**
      * Get user
      *
-     * @return \Caiwen\CoreBundle\Entity\User 
+     * @return \Caiwen\CoreBundle\Entity\User
      */
-    public function getUser()
-    {
+    public function getUser() {
         return $this->user;
     }
 }

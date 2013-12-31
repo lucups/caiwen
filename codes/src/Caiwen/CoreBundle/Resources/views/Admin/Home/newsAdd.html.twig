@@ -28,10 +28,6 @@
         var title = $('#title').val();
         var content = $('#content').val();
 
-        Messenger.options = {
-            extraClasses: 'messenger-fixed messenger-theme-future messenger-on-bottom messenger-on-right'
-        }
-
         $.ajax({
             url: '{{ path('_api_news_add') }}',
             method: 'POST',

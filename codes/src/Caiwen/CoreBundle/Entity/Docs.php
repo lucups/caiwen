@@ -49,10 +49,9 @@ class Docs {
     /**
      * Get docsId
      *
-     * @return integer 
+     * @return integer
      */
-    public function getDocsId()
-    {
+    public function getDocsId() {
         return $this->docsId;
     }
 
@@ -62,8 +61,7 @@ class Docs {
      * @param string $title
      * @return Docs
      */
-    public function setTitle($title)
-    {
+    public function setTitle($title) {
         $this->title = $title;
 
         return $this;
@@ -72,10 +70,9 @@ class Docs {
     /**
      * Get title
      *
-     * @return string 
+     * @return string
      */
-    public function getTitle()
-    {
+    public function getTitle() {
         return $this->title;
     }
 
@@ -85,8 +82,7 @@ class Docs {
      * @param string $author
      * @return Docs
      */
-    public function setAuthor($author)
-    {
+    public function setAuthor($author) {
         $this->author = $author;
 
         return $this;
@@ -95,10 +91,9 @@ class Docs {
     /**
      * Get author
      *
-     * @return string 
+     * @return string
      */
-    public function getAuthor()
-    {
+    public function getAuthor() {
         return $this->author;
     }
 
@@ -108,8 +103,7 @@ class Docs {
      * @param string $keywords
      * @return Docs
      */
-    public function setKeywords($keywords)
-    {
+    public function setKeywords($keywords) {
         $this->keywords = $keywords;
 
         return $this;
@@ -118,10 +112,9 @@ class Docs {
     /**
      * Get keywords
      *
-     * @return string 
+     * @return string
      */
-    public function getKeywords()
-    {
+    public function getKeywords() {
         return $this->keywords;
     }
 
@@ -131,8 +124,7 @@ class Docs {
      * @param string $filePath
      * @return Docs
      */
-    public function setFilePath($filePath)
-    {
+    public function setFilePath($filePath) {
         $this->filePath = $filePath;
 
         return $this;
@@ -141,10 +133,9 @@ class Docs {
     /**
      * Get filePath
      *
-     * @return string 
+     * @return string
      */
-    public function getFilePath()
-    {
+    public function getFilePath() {
         return $this->filePath;
     }
 }

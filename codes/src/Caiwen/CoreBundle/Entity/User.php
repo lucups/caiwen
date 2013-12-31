@@ -105,17 +105,16 @@ class User implements UserInterface {
     public function getSalt() {
         return 'caiwen2013';
     }
-    
+
     public function eraseCredentials() {
     }
 
     /**
      * Get userId
      *
-     * @return integer 
+     * @return integer
      */
-    public function getUserId()
-    {
+    public function getUserId() {
         return $this->userId;
     }
 
@@ -125,8 +124,7 @@ class User implements UserInterface {
      * @param string $username
      * @return User
      */
-    public function setUsername($username)
-    {
+    public function setUsername($username) {
         $this->username = $username;
 
         return $this;
@@ -138,8 +136,7 @@ class User implements UserInterface {
      * @param string $email
      * @return User
      */
-    public function setEmail($email)
-    {
+    public function setEmail($email) {
         $this->email = $email;
 
         return $this;
@@ -148,10 +145,9 @@ class User implements UserInterface {
     /**
      * Get email
      *
-     * @return string 
+     * @return string
      */
-    public function getEmail()
-    {
+    public function getEmail() {
         return $this->email;
     }
 
@@ -161,8 +157,7 @@ class User implements UserInterface {
      * @param string $password
      * @return User
      */
-    public function setPassword($password)
-    {
+    public function setPassword($password) {
         $this->password = $password;
 
         return $this;
@@ -174,8 +169,7 @@ class User implements UserInterface {
      * @param integer $role
      * @return User
      */
-    public function setRole($role)
-    {
+    public function setRole($role) {
         $this->role = $role;
 
         return $this;
@@ -184,10 +178,9 @@ class User implements UserInterface {
     /**
      * Get role
      *
-     * @return integer 
+     * @return integer
      */
-    public function getRole()
-    {
+    public function getRole() {
         return $this->role;
     }
 
@@ -197,8 +190,7 @@ class User implements UserInterface {
      * @param \DateTime $createTime
      * @return User
      */
-    public function setCreateTime($createTime)
-    {
+    public function setCreateTime($createTime) {
         $this->createTime = $createTime;
 
         return $this;
@@ -207,10 +199,9 @@ class User implements UserInterface {
     /**
      * Get createTime
      *
-     * @return \DateTime 
+     * @return \DateTime
      */
-    public function getCreateTime()
-    {
+    public function getCreateTime() {
         return $this->createTime;
     }
 }
