@@ -1,4 +1,5 @@
 <script type="text/javascript">
+
     function loadNewsListPage() {
         var url = '{{ path('_admin_news_list') }}';
         var bc_arr = [
@@ -7,6 +8,21 @@
             ['*', '新闻列表']
         ];
         loadAjax(url, generateBC(bc_arr), '新闻列表');
+    }
+
+    function loadPhotoListPage(album_id){
+        var url;
+        var bc_arr;
+        var title;
+        switch (album_id){
+            case 1:
+                break;
+            case 2:
+                break;
+            case 3:
+                break;
+        }
+        loadAjax(url, generateBC(bc_arr), title);
     }
 
     /**

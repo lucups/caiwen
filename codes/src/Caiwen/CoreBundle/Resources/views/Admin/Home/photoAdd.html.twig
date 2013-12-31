@@ -74,7 +74,17 @@
         var content = $('#content').val();
         var image_path = IMG_PATH;
         $.ajax({
-            url: '{{ _api_ }}'
+            url: '{{ _api_photo_add }}',
+            method: 'POST',
+            data: 'title=' + title + '&content=' + content + '&album_id=' + album_id + '&image_path=' + image_path,
+            success: function (msg) {
+                Messenger().post({
+                    message: '添加成功！',
+                    hideAfter: 3,
+                    hideOnNavigate: true
+                });
+                loadPhotoListPage();
+            }
         });
     });
 
