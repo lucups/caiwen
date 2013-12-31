@@ -4,9 +4,7 @@
     <div class="row marketing" style="margin-top:0px;">
         <div class="col-12">
             <h2>白菜病害</h2>
-            <ol class="breadcrumb">
-                <li><a href="index.html">菜问首页</a></li>
-                <li class="active">白菜病害</li>
+            <ol class="breadcrumb" id="bc-list">
             </ol>
             <hr>
             <form class="col-lg-6 pull-right" action="photo-search-list.html">
@@ -96,4 +94,14 @@
         </div>
 
     </div>
+{% endblock %}
+
+
+{% block js %}
+    <script type="text/javascript">
+        $('#bc-list').html(generateBC([
+            ['{{ path('_index') }}', '菜问首页'],
+            ['*', '白菜病害']
+        ]));
+    </script>
 {% endblock %}

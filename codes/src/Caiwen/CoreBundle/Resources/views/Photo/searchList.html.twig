@@ -87,3 +87,13 @@
 
     </div>
 {% endblock %}
+
+{% block js %}
+    <script type="text/javascript">
+        $('#bc-list').html(generateBC([
+            ['{{ path('_index') }}', '菜问首页'],
+            ['{{ path('_photo_list') }}', '白菜病害'],
+            ['*', '搜索结果']
+        ]));
+    </script>
+{% endblock %}
