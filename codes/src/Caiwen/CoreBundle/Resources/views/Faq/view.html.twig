@@ -5,10 +5,7 @@
 
         <div class="col-12">
             <h2>问题标题问题标题问题标题问题标题问题问题标题</h2>
-            <ol class="breadcrumb">
-                <li><a href="index.html">菜问首页</a></li>
-                <li><a href="faq-list.html">菜问问答</a></li>
-                <li class="active">查看问答</li>
+            <ol class="breadcrumb" id="bc-list">
             </ol>
             <hr>
         </div>
@@ -50,4 +47,14 @@
         </div>
 
     </div>
+{% endblock %}
+
+{% block js %}
+    <script type="text/javascript">
+        $('#bc-list').html(generateBC([
+            ['{{ path('_index') }}', '菜问首页'],
+            ['{{ path('_faq_list') }}', '菜问问答'],
+            ['*', '查看问答']
+        ]));
+    </script>
 {% endblock %}
