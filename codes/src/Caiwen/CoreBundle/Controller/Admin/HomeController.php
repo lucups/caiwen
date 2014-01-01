@@ -133,11 +133,16 @@ class HomeController extends Controller {
     }
 
     /**
-     * @Route("/photo-list", name="_admin_photo_list")
+     * @Route("/photo-list/{album_id}", name="_admin_photo_list")
      * @Template()
      */
-    public function photoListAction() {
-        return array();
+    public function photoListAction($album_id) {
+        $photo_r = $this->getDoctrine()->getRepository('CaiwenCoreBundle:Photo');
+        $photos = $photo_r->findByAlbumId($album_id);
+
+        return array(
+            'photos' => $photos,
+        );
     }
 
 }

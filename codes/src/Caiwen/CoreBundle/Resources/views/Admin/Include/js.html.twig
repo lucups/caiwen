@@ -12,18 +12,21 @@
 
     function loadPhotoListPage(album_id) {
         var title = '';
+        var url = '';
         switch (album_id) {
             case 1:
                 title = '白菜病害';
+                url = '{{ path('_admin_photo_list',{album_id:1}) }}';
                 break;
             case 2:
                 title = '白菜虫害';
+                url = '{{ path('_admin_photo_list',{album_id:2}) }}';
                 break;
             case 3:
                 title = '杂草识别';
+                url = '{{ path('_admin_photo_list',{album_id:3}) }}';
                 break;
         }
-        var url = '{{ path('_admin_photo_list') }}';
         var bc_arr = [
             ['{{ path('_admin_index') }}', '管理首页'],
             ['#', '图文管理'],

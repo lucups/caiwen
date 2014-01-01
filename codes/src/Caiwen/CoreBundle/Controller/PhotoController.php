@@ -25,9 +25,13 @@ class PhotoController extends Controller {
     public function listAction($album_id) {
         $album_r = $this->getDoctrine()->getRepository('CaiwenCoreBundle:Album');
         $album = $album_r->findOneByAlbumId($album_id);
+        $photo_r = $this->getDoctrine()->getRepository('CaiwenCoreBundle:Photo');
+        $photos = $photo_r->findByAlbumId($album_id);
+
         return array(
             'album_id' => $album_id,
             'page_title' => $album->getTitle(),
+            'photos' => $photos,
         );
     }
 

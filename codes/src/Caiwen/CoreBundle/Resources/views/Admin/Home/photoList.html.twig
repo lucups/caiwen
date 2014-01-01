@@ -5,12 +5,15 @@
     </div>
 </div>
 <div class="well" style="float: left;width: 96%;">
-    <div style="float: left;margin-right: 18px; margin-left: 18px;">
-        <p align="center">
-            <img src="{{ asset('images/140x140.gif') }}" class="img-polaroid"><br/>
-            <a href="#">第八号虫害</a>
-        </p>
-    </div>
+    {% for photo in photos %}
+        <div style="float: left;margin-right: 18px; margin-left: 18px;">
+            <p align="center">
+                <img width="100px" height="100px" src="{{ asset('uploads/images/') }}{{ photo.imagePath }}"
+                     class="img-polaroid"><br/>
+                <a href="{{ path('_photo_view',{album_id:photo.albumId, photo_id: photo.photoId}) }}" target="_blank">第八号虫害</a>
+            </p>
+        </div>
+    {% endfor %}
 
 
 </div>
