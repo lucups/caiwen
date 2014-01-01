@@ -4,29 +4,17 @@
     <div class="row marketing" style="margin-top:0px;">
 
         <div class="col-12">
-            <h2>白菜病害01</h2>
+            <h2>{{ photo.title }}</h2>
             <ol class="breadcrumb" id="bc-list">
-                <li><a href="index.html">菜问首页</a></li>
-                <li><a href="album.html">白菜病害</a></li>
-                <li class="active">白菜病害01</li>
             </ol>
             <hr>
         </div>
 
         <div class="col-12 well" style="margin-top:20px;">
 
-            <p><img src="{{ asset('/img/logo2.jpg') }}" alt="..." class="img-rounded img-responsive"></p>
+            <p><img width="400px" height="400px" src="{{ asset('uploads/images/') }}{{ photo.imagePath }}" alt="..." class="img-rounded img-responsive"></p>
 
-            <p>
-                白菜虫害01描述白菜虫害01描述白菜虫害01描述白菜虫害01描述白菜虫害01描述
-                白菜虫害01描述白菜虫害01描述白菜虫害01描述白菜虫害01描述白菜虫害01描述
-                白菜虫害01描述白菜虫害01描述白菜虫害01描述白菜虫害01描述白菜虫害01描述
-                白菜虫害01描述白菜虫害01描述白菜虫害01描述白菜虫害01描述白菜虫害01描述
-                白菜虫害01描述白菜虫害01描述白菜虫害01描述白菜虫害01描述白菜虫害01描述
-                白菜虫害01描述白菜虫害01描述白菜虫害01描述白菜虫害01描述白菜虫害01描述
-                白菜虫害01描述白菜虫害01描述白菜虫害01描述白菜虫害01描述白菜虫害01描述
-                白菜虫害01描述白菜虫害01描述白菜虫害01描述白菜虫害01描述白菜虫害01描述
-            </p>
+            <p>{{ photo.content }}</p>
 
         </div>
 
@@ -37,8 +25,8 @@
     <script type="text/javascript">
         $('#bc-list').html(generateBC([
             ['{{ path('_index') }}', '菜问首页'],
-            ['{{ path('_photo_list',{album_id:1}) }}', '白菜病害'],
-            ['*', '病害详细']
+            ['{{ path('_photo_list',{album_id:album.albumId}) }}', '{{ album.title }}'],
+            ['*', '{{ photo.title }}']
         ]));
     </script>
 {% endblock %}

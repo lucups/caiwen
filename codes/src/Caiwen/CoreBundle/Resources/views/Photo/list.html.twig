@@ -21,76 +21,14 @@
         </div>
 
         <div class="col-lg-12 well" style="margin-top:20px;">
+            {% for photo in photos %}
+                <div class="col-6 col-sm-6 col-lg-4">
+                    <p><img width="180px" height="180px" src="{{ asset('uploads/images/') }}{{ photo.imagePath }}" alt="..."
+                            class="img-rounded img-responsive"></p>
 
-            <div class="col-6 col-sm-6 col-lg-4">
-                <p><img src="{{ asset('/img/logo2.jpg') }}" alt="..." class="img-rounded img-responsive"></p>
-
-                <p class="text-center"><a href="{{ path('_photo_view', {album_id:1, photo_id:1}) }}">白菜虫害01</a></p>
-            </div>
-            <!--/span-->
-
-            <div class="col-6 col-sm-6 col-lg-4">
-                <p><img src="{{ asset('/img/logo2.jpg') }}" alt="..." class="img-rounded img-responsive"></p>
-
-                <p class="text-center"><a href="photo.html">白菜虫害01</a></p>
-            </div>
-            <!--/span-->
-
-            <div class="col-6 col-sm-6 col-lg-4">
-                <p><img src="{{ asset('/img/logo2.jpg') }}" alt="..." class="img-rounded img-responsive"></p>
-
-                <p class="text-center"><a href="photo.html">白菜虫害01</a></p>
-            </div>
-            <!--/span-->
-
-            <div class="col-6 col-sm-6 col-lg-4">
-                <p><img src="{{ asset('/img/logo2.jpg') }}" alt="..." class="img-rounded img-responsive"></p>
-
-                <p class="text-center"><a href="photo.html">白菜虫害01</a></p>
-            </div>
-            <!--/span-->
-
-            <div class="col-6 col-sm-6 col-lg-4">
-                <p><img src="{{ asset('/img/logo2.jpg') }}" alt="..." class="img-rounded img-responsive"></p>
-
-                <p class="text-center"><a href="photo.html">白菜虫害01</a></p>
-            </div>
-            <!--/span-->
-
-            <div class="col-6 col-sm-6 col-lg-4">
-                <p><img src="{{ asset('/img/logo2.jpg') }}" alt="..." class="img-rounded img-responsive"></p>
-
-                <p class="text-center"><a href="photo.html">白菜虫害01</a></p>
-            </div>
-            <!--/span-->
-
-            <div class="col-6 col-sm-6 col-lg-4">
-                <p><img src="{{ asset('/img/logo2.jpg') }}" alt="..." class="img-rounded img-responsive"></p>
-
-                <p class="text-center"><a href="photo.html">白菜虫害01</a></p>
-            </div>
-            <!--/span-->
-
-            <div class="col-6 col-sm-6 col-lg-4">
-                <p><img src="{{ asset('/img/logo2.jpg') }}" alt="..." class="img-rounded img-responsive"></p>
-
-                <p class="text-center"><a href="photo.html">白菜虫害01</a></p>
-            </div>
-            <!--/span-->
-
-            <div class="col-6 col-sm-6 col-lg-4">
-                <p><img src="{{ asset('/img/logo2.jpg') }}" alt="..." class="img-rounded img-responsive"></p>
-
-                <p class="text-center"><a href="photo.html">白菜虫害01</a></p>
-            </div>
-            <!--/span-->
-
-            <div class="col-6 col-sm-6 col-lg-4">
-                <p><img src="{{ asset('/img/logo2.jpg') }}" alt="..." class="img-rounded img-responsive"></p>
-
-                <p class="text-center"><a href="photo.html">白菜虫害01</a></p>
-            </div>
-            <!--/span-->
+                    <p class="text-center"><a href="{{ path('_photo_view', {album_id:photo.albumId, photo_id:photo.photoId}) }}">白菜虫害01</a></p>
+                </div>
+            {% endfor %}
         </div>
 
     </div>

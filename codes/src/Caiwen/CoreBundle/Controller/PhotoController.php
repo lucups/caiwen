@@ -40,9 +40,14 @@ class PhotoController extends Controller {
      * @Template()
      */
     public function viewAction($album_id, $photo_id) {
+
+        $album_r = $this->getDoctrine()->getRepository('CaiwenCoreBundle:Album');
+        $album = $album_r->findOneByAlbumId($album_id);
+        $photo_r = $this->getDoctrine()->getRepository('CaiwenCoreBundle:Photo');
+        $photo = $photo_r->findOneByPhotoId($photo_id);
         return array(
-            'album_id' => $album_id,
-            'photo_id' => $photo_id,
+            'album' => $album,
+            'photo' => $photo,
         );
     }
 
