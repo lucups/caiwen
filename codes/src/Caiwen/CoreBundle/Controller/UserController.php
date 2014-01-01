@@ -32,6 +32,14 @@ class UserController extends Controller {
     }
 
     /**
+     * @Route("/forget-password", name="_user_forget_password")
+     * @Template()
+     */
+    public function forgetPasswordAction() {
+        return array();
+    }
+
+    /**
      * @Route("/logout", name="_user_logout")
      * @Template()
      */
