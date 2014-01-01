@@ -26,7 +26,7 @@
                     <p><img width="180px" height="180px" src="{{ asset('uploads/images/') }}{{ photo.imagePath }}" alt="..."
                             class="img-rounded img-responsive"></p>
 
-                    <p class="text-center"><a href="{{ path('_photo_view', {album_id:photo.albumId, photo_id:photo.photoId}) }}">白菜虫害01</a></p>
+                    <p class="text-center"><a href="{{ path('_photo_view', {album_id:photo.albumId, photo_id:photo.photoId}) }}">{{ photo.title }}</a></p>
                 </div>
             {% endfor %}
         </div>

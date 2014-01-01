@@ -10,7 +10,7 @@
             <p align="center">
                 <img width="100px" height="100px" src="{{ asset('uploads/images/') }}{{ photo.imagePath }}"
                      class="img-polaroid"><br/>
-                <a href="{{ path('_photo_view',{album_id:photo.albumId, photo_id: photo.photoId}) }}" target="_blank">第八号虫害</a>
+                <a href="{{ path('_photo_view',{album_id:photo.albumId, photo_id: photo.photoId}) }}" target="_blank">{{ photo.title }}</a>
             </p>
         </div>
     {% endfor %}
