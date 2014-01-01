@@ -48,6 +48,26 @@ class FileController extends Controller {
         ));
     }
 
+    /**
+     * @param Request $request
+     * @return Response
+     * @Route("/upload-img", name="_file_upload_img")
+     */
+    public function uploadImgAction(Request $request){
+        $file = new File();
+        $file->setFile($request->files->get('file'));
+        $file->setUploadDir('uploads/images');
+        $result = $this->baseUploadAction($file);
+        return $this->makeResponse(AR::ERR_SUCCESS, array(
+            'image_path' => $result['file_path'],
+        ));
+    }
+
+    /**
+     * @param Request $request
+     * @return Response
+     * @Route("/upload-pdf", name="_file_upload_pdf")
+     */
     public function uploadPdfAction(Request $request) {
         $file = new File();
         $file->setFile($request->files->get('file'));

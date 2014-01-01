@@ -31,7 +31,8 @@
     </div>
 
     <div class="control-group">
-        <form class="form-horizontal" id="form-upload">
+        <form class="form-horizontal" id="form-upload" method="POST" enctype="multipart/form-data"
+              action="{{ path('_file_upload_pdf') }}">
             <label class="control-label" for="title">PDF</label>
 
             <div class="controls">
