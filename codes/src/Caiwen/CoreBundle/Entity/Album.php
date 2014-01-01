@@ -8,6 +8,9 @@
 
 namespace Caiwen\CoreBundle\Entity;
 
+use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\Validator\Constraints as Assert;
+
 /**
  * @ORM\Entity(repositoryClass="Caiwen\CoreBundle\Entity\AlbumRepository")
  * @ORM\Table(name="album")

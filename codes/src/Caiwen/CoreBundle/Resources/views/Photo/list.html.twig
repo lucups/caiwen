@@ -3,7 +3,7 @@
 {% block content %}
     <div class="row marketing" style="margin-top:0px;">
         <div class="col-12">
-            <h2>白菜病害</h2>
+            <h2>{{ page_title }}</h2>
             <ol class="breadcrumb" id="bc-list">
             </ol>
             <hr>
@@ -101,7 +101,7 @@
     <script type="text/javascript">
         $('#bc-list').html(generateBC([
             ['{{ path('_index') }}', '菜问首页'],
-            ['*', '白菜病害']
+            ['*', '{{ page_title }}']
         ]));
     </script>
 {% endblock %}
