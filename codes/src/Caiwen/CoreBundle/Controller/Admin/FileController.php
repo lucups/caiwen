@@ -55,7 +55,7 @@ class FileController extends Controller {
      */
     public function uploadImgAction(Request $request){
         $file = new File();
-        $file->setFile($request->files->get('file'));
+        $file->setFile($request->files->get('image'));
         $file->setUploadDir('uploads/images');
         $result = $this->baseUploadAction($file);
         return $this->makeResponse(AR::ERR_SUCCESS, array(
