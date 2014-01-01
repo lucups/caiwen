@@ -1,5 +1,5 @@
 <div class="btn-toolbar">
-    <button class="btn btn-primary"><i class="icon-save"></i> 保存文献</button>
+    <button id="btn-submit" class="btn btn-primary"><i class="icon-save"></i> 保存文献</button>
 
     <div class="btn-group">
     </div>
@@ -55,7 +55,7 @@
             beforeSubmit: function () {
             },
             success: function (json) {
-                PDF_PATH = json.file_path;
+                PDF_PATH = json.data.file_path;
                 Messenger().post({
                     message: '文献附件上传成功！',
                     hideAfter: 3,
@@ -80,7 +80,7 @@
             data: 'title=' + title + '&author=' + author + '&keywords=' + keywords + '&file_path=' + PDF_PATH,
             success: function (msg) {
                 Messenger().post({
-                    message: '文献添加添加成功！',
+                    message: '文献添加成功！',
                     hideAfter: 3,
                     hideOnNavigate: true
                 });

@@ -18,16 +18,16 @@
         </tr>
         </thead>
         <!-- 数据 -->
-        {% for i in 1..10 %}
+        {% for docs in docses %}
             <tbody>
             <tr>
-                <td>{{ i }}</td>
-                <td>基于Ｐｒｅｆｕｓｅ的信息可视化系统的研究</td>
-                <td>陆健 Peter</td>
-                <td>Prefuse，信息可视化，netdraw</td>
+                <td>{{ docs.docsId }}</td>
+                <td>{{ docs.title }}</td>
+                <td>{{ docs.author }}</td>
+                <td>{{ docs.keywords }}</td>
                 <td><a href="#" class="btn btn-primary">下载</a></td>
                 <td>
-                    <a href="user.html"><i class="icon-pencil"></i></a>
+                    <a href="#"><i class="icon-pencil"></i></a>
                     <a href="#myModal" role="button" data-toggle="modal"><i class="icon-remove"></i></a>
                 </td>
             </tr>

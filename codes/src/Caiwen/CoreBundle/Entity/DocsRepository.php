@@ -15,7 +15,7 @@ class DocsRepository extends EntityRepository {
     public function save($docs) {
         $this->getEntityManager()->persist($docs);
         $this->getEntityManager()->flush();
-        return $docs->getNewsId();
+        return $docs->getDocsId();
     }
 
     public function delete($docs) {

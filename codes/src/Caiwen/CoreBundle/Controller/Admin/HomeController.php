@@ -105,7 +105,11 @@ class HomeController extends Controller {
      * @Template()
      */
     public function docsListAction() {
-        return array();
+        $docs_r = $this->getDoctrine()->getRepository('CaiwenCoreBundle:Docs');
+        $docses = $docs_r->findAll();
+        return array(
+            'docses' => $docses,
+        );
     }
 
     /**
