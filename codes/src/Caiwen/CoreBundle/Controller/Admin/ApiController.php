@@ -23,6 +23,7 @@ use Caiwen\CoreBundle\Entity\UserRepository;
 use Caiwen\CoreBundle\Entity\News;
 use Caiwen\CoreBundle\Entity\NewsRepository;
 use Caiwen\CoreBundle\Entity\Photo;
+use Caiwen\CoreBundle\Entity\Docs;
 
 /**
  * Class ApiController
@@ -57,7 +58,21 @@ class ApiController extends Controller {
     /**
      * @Route("/docs-add", name="_api_docs_add")
      */
-    public function docsAddAction(){
+    public function docsAddAction(Request $request){
+
+        $title = $request->get('title');
+        $author = $request->get('author');
+        $keywords = $request->get('keywords');
+        $file_path = $request->get('file_path');
+
+        $docs = new Docs();
+        $docs->setTitle($title);
+        $docs->setAuthor($author);
+        $docs->setKeywords($keywords);
+        $docs->setFilePath($file_path);
+
+        $docs_r = $this->getDoctrine()->getRepository('CaiwenCoreBundle:Docs');
+        $docs_r->save($docs);
 
         return $this->makeResponse(AR::ERR_SUCCESS);
     }
