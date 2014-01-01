@@ -37,7 +37,7 @@
     <script type="text/javascript">
         $('#bc-list').html(generateBC([
             ['{{ path('_index') }}', '菜问首页'],
-            ['{{ path('_photo_list') }}', '白菜病害'],
+            ['{{ path('_photo_list',{album_id:1}) }}', '白菜病害'],
             ['*', '病害详细']
         ]));
     </script>

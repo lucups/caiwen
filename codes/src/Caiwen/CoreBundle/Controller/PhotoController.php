@@ -32,7 +32,7 @@ class PhotoController extends Controller {
     }
 
     /**
-     * @Route("/view/{album_id}/{photo_id}", name="_photo_view")
+     * @Route("/view/{album_id}-{photo_id}", name="_photo_view")
      * @Template()
      */
     public function viewAction($album_id, $photo_id) {
