@@ -19,9 +19,7 @@ use Symfony\Component\HttpFoundation\Request;
 
 use Caiwen\CoreBundle\Common\AjaxResponse as AR;
 use Caiwen\CoreBundle\Entity\User;
-use Caiwen\CoreBundle\Entity\UserRepository;
 use Caiwen\CoreBundle\Entity\News;
-use Caiwen\CoreBundle\Entity\NewsRepository;
 use Caiwen\CoreBundle\Entity\Photo;
 use Caiwen\CoreBundle\Entity\Docs;
 
