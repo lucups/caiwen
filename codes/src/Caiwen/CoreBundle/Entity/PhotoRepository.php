@@ -10,7 +10,7 @@ namespace Caiwen\CoreBundle\Entity;
 
 use Doctrine\ORM\EntityRepository;
 
-class PhotoRepository {
+class PhotoRepository extends EntityRepository {
 
     public function save($photo) {
         $this->getEntityManager()->persist($photo);

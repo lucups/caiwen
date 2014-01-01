@@ -10,7 +10,7 @@ namespace Caiwen\CoreBundle\Entity;
 
 use Doctrine\ORM\EntityRepository;
 
-class DocsRepository {
+class DocsRepository extends EntityRepository {
 
     public function save($docs) {
         $this->getEntityManager()->persist($docs);

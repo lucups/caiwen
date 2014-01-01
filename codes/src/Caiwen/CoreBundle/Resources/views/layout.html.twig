@@ -34,9 +34,9 @@
         <ul class="nav nav-pills pull-right">
             <li><a href="{{ path('_index') }}">首页</a></li>
             <li><a href="{{ path('_news_list') }}">新闻中心</a></li>
-            <li><a href="{{ path('_photo_list') }}">白菜病害</a></li>
-            <li><a href="{{ path('_photo_list') }}">白菜虫害</a></li>
-            <li><a href="{{ path('_photo_list') }}">杂草识别</a></li>
+            <li><a href="{{ path('_photo_list', {album_id: 1}) }}">白菜病害</a></li>
+            <li><a href="{{ path('_photo_list', {album_id: 2}) }}">白菜虫害</a></li>
+            <li><a href="{{ path('_photo_list', {album_id: 3}) }}">杂草识别</a></li>
             <li><a href="{{ path('_docs_search') }}">文献搜索</a></li>
             <li><a href="{{ path('_faq_list') }}">菜问问答</a></li>
         </ul>

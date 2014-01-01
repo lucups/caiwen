@@ -10,6 +10,8 @@ use Sensio\Bundle\FrameworkExtraBundle\Configuration\Template;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\HttpFoundation\Request;
 
+use Caiwen\CoreBundle\Entity\Album;
+
 
 /**
  * @Route("/photo")
@@ -17,19 +19,27 @@ use Symfony\Component\HttpFoundation\Request;
 class PhotoController extends Controller {
 
     /**
-     * @Route("/list", name="_photo_list")
+     * @Route("/list/{album_id}", name="_photo_list")
      * @Template()
      */
-    public function listAction() {
-        return array();
+    public function listAction($album_id) {
+        $album_r = $this->getDoctrine()->getRepository('CaiwenCoreBundle:Album');
+        $album = $album_r->findOneByAlbumId($album_id);
+        return array(
+            'album_id' => $album_id,
+            'page_title' => $album->getTitle(),
+        );
     }
 
     /**
-     * @Route("/view", name="_photo_view")
+     * @Route("/view/{album_id}/{photo_id}", name="_photo_view")
      * @Template()
      */
-    public function viewAction() {
-        return array();
+    public function viewAction($album_id, $photo_id) {
+        return array(
+            'album_id' => $album_id,
+            'photo_id' => $photo_id,
+        );
     }
 
     /**
