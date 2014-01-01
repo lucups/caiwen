@@ -33,11 +33,11 @@
     <div class="control-group">
         <form class="form-horizontal" id="form-upload" method="POST" enctype="multipart/form-data"
               action="{{ path('_file_upload_pdf') }}">
-            <label class="control-label" for="title">PDF</label>
+            <label id="label-pdf" class="control-label" for="title">添加 PDF 附件</label>
 
             <div class="controls">
-                <input type="file" id="pdf" name="pdf">
-                <button class="btn btn-primary" id="btn-upload">上传</button>
+                <input type="file" id="pdf" name="file">
+                <a class="btn btn-primary" id="btn-upload">上传</a>
             </div>
         </form>
     </div>
@@ -47,7 +47,7 @@
 
 <script type="text/javascript">
 
-    var IMG_PATH = '';
+    var PDF_PATH = '';
 
     $('#btn-upload').click(function () {
         $('#form-upload').ajaxSubmit({
@@ -55,11 +55,38 @@
             beforeSubmit: function () {
             },
             success: function (json) {
-                IMG_PATH = json.file_path;
+                PDF_PATH = json.file_path;
+                Messenger().post({
+                    message: '文献附件上传成功！',
+                    hideAfter: 3,
+                    hideOnNavigate: true
+                });
+                //$('#form-upload').hide();
+                $('#label-pdf').html('文献上传成功！');
             },
             error: function (xhr) { //上传失败
                 console.log(xhr.responseText); //返回失败信息
             }
+        });
+    });
+
+    $('#btn-submit').click(function () {
+        var title = $('#title').val();
+        var author = $('#author').val();
+        var keywords = $('#keywords').val();
+
+        $.ajax({
+            url: '{{ path('_api_docs_add') }}', method: 'POST',
+            data: 'title=' + title + '&author=' + author + '&keywords=' + keywords + '&file_path=' + PDF_PATH,
+            success: function (msg) {
+                Messenger().post({
+                    message: '文献添加添加成功！',
+                    hideAfter: 3,
+                    hideOnNavigate: true
+                });
+                loadDocsListPage();
+            }
+
         });
     });
 

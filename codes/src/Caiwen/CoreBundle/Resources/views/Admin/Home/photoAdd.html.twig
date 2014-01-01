@@ -27,13 +27,13 @@
     </div>
 
     <div class="control-group">
-        <label class="control-label" for="title">图片</label>
+        <label class="control-label" id="label-image" for="title">图片</label>
 
         <form id="form-upload" class="form-horizontal" enctype="multipart/form-data" method="POST"
               action="{{ path('_file_upload_img') }}">
             <div class="controls">
                 <input type="file" id="image" name="image">
-                <button class="btn btn-primary" id="btn-upload">上传</button>
+                <a class="btn btn-primary" id="btn-upload">上传</a>
             </div>
         </form>
     </div>
@@ -59,6 +59,12 @@
             },
             success: function (json) {
                 IMG_PATH = json.image_path;
+                Messenger().post({
+                    message: '图片上传成功！',
+                    hideAfter: 3,
+                    hideOnNavigate: true
+                });
+                $('#label-image').html('图片上传成功！');
             },
             error: function (xhr) { //上传失败
                 console.log(xhr.responseText); //返回失败信息
@@ -75,7 +81,7 @@
         var content = $('#content').val();
         var image_path = IMG_PATH;
         $.ajax({
-            url: '{{ _api_photo_add }}',
+            url: '{{ path('_api_photo_add') }}',
             method: 'POST',
             data: 'title=' + title + '&content=' + content + '&album_id=' + album_id + '&image_path=' + image_path,
             success: function (msg) {
