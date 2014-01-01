@@ -15,7 +15,7 @@ class UserRepository extends EntityRepository {
     public function save($user) {
         $this->getEntityManager()->persist($user);
         $this->getEntityManager()->flush();
-        return $user->getNewsId();
+        return $user->getUserId();
     }
 
     public function delete($user) {

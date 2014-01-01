@@ -11,6 +11,7 @@ use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\HttpFoundation\Request;
 
 use Caiwen\CoreBundle\Common\AjaxResponse as AR;
+use Caiwen\CoreBundle\Entity\User;
 
 /**
  * @Route("/api")
@@ -22,8 +23,23 @@ class ApiController extends Controller {
      * @Route("/register", name="_api_register")
      */
     public function registerAction(Request $request){
+        $user = new User();
+
         $username = $request->get('username');
         $password = $request->get('password');
+        $email = $request->get('email');
+
+        $factory = $this->get('security.encoder_factory');
+        $encoder = $factory->getEncoder($user);
+        $pwd = $encoder->encodePassword($password, $user->getSalt());
+
+        $user->setUsername($username);
+        $user->setPassword($pwd);
+        $user->setEmail($email);
+        $user->setRole(User::ROLE_USER);
+
+        $user_r = $this->getDoctrine()->getRepository('CaiwenCoreBundle:User');
+        $user_r->save($user);
 
         return $this->makeResponse(AR::ERR_SUCCESS);
     }
