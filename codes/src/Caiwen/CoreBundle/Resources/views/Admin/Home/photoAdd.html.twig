@@ -1,5 +1,5 @@
 <div class="btn-toolbar">
-    <button class="btn btn-primary" id="btn-submit"><i class="icon-save"></i> 发布新闻</button>
+    <button class="btn btn-primary" id="btn-submit"><i class="icon-save"></i> 发布图文</button>
     <div class="btn-group">
     </div>
 </div>
@@ -58,7 +58,7 @@
             beforeSubmit: function () {
             },
             success: function (json) {
-                IMG_PATH = json.image_path;
+                IMG_PATH = json.data.image_path;
                 Messenger().post({
                     message: '图片上传成功！',
                     hideAfter: 3,
@@ -79,11 +79,10 @@
         var album_id = $('#album_id').val();
         var title = $('#title').val();
         var content = $('#content').val();
-        var image_path = IMG_PATH;
         $.ajax({
             url: '{{ path('_api_photo_add') }}',
             method: 'POST',
-            data: 'title=' + title + '&content=' + content + '&album_id=' + album_id + '&image_path=' + image_path,
+            data: 'title=' + title + '&content=' + content + '&album_id=' + album_id + '&image_path=' + IMG_PATH,
             success: function (msg) {
                 Messenger().post({
                     message: '添加成功！',

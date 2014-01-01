@@ -15,7 +15,7 @@ class PhotoRepository extends EntityRepository {
     public function save($photo) {
         $this->getEntityManager()->persist($photo);
         $this->getEntityManager()->flush();
-        return $photo->getNewsId();
+        return $photo->getPhotoId();
     }
 
     public function delete($photo) {

@@ -36,27 +36,6 @@ class ApiController extends Controller {
     }
 
     /**
-     * @Route("/news/add")
-     */
-    public function addNewsNewsAction() {
-        return $this->makeResponse(AR::ERR_SUCCESS);
-    }
-
-    /**
-     * @Route("/news/delete/{news_id}")
-     */
-    public function deleteNewsAction($news_id) {
-        return $this->makeResponse(AR::ERR_SUCCESS);
-    }
-
-    /**
-     * @Route("/news/edit/{news_id}", name="")
-     */
-    public function editNewsAction($news_id) {
-        return $this->makeResponse(AR::ERR_SUCCESS);
-    }
-
-    /**
      * @Route("/question-add", name="_api_question_add")
      */
     public function questionAddAction() {
