@@ -48,6 +48,15 @@ class DefaultController extends Controller {
     }
 
     /**
+     * @return array
+     * @Route("/about-us", name="_about_us")
+     * @Template()
+     */
+    public function aboutUsAction(){
+        return array();
+    }
+
+    /**
      * @Route("/upload", name="_upload")
      * @Template()
      */
