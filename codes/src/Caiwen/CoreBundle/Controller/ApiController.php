@@ -17,6 +17,24 @@ use Caiwen\CoreBundle\Common\AjaxResponse as AR;
  */
 class ApiController extends Controller {
 
+
+    /**
+     * @Route("/register", name="_api_register")
+     */
+    public function registerAction(Request $request){
+        $username = $request->get('username');
+        $password = $request->get('password');
+
+        return $this->makeResponse(AR::ERR_SUCCESS);
+    }
+
+    /**
+     * @Route("/reset-password", name="_api_reset_password")
+     */
+    public function resetPasswordAction(){
+        return $this->makeResponse(AR::ERR_SUCCESS);
+    }
+
     /**
      * @Route("/news/add")
      */
