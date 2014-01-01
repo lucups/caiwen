@@ -5,38 +5,61 @@
     </div>
 </div>
 <div class="well">
-    <form class="form-horizontal">
-        <div class="control-group">
-            <label class="control-label" for="title">标题</label>
 
-            <div class="controls">
-                <input type="text" id="title" placeholder="标题" class="input-xxlarge">
-            </div>
+    <div class="control-group">
+        <label class="control-label" for="title">标题</label>
+
+        <div class="controls">
+            <input type="text" id="title" placeholder="标题" class="input-xxlarge">
         </div>
+    </div>
 
-        <div class="control-group">
-            <label class="control-label" for="author">作者</label>
+    <div class="control-group">
+        <label class="control-label" for="author">作者</label>
 
-            <div class="controls">
-                <input type="text" id="author" placeholder="作者" class="input-xxlarge">
-            </div>
+        <div class="controls">
+            <input type="text" id="author" placeholder="作者" class="input-xxlarge">
         </div>
+    </div>
 
-        <div class="control-group">
-            <label class="control-label" for="keywords">关键词</label>
+    <div class="control-group">
+        <label class="control-label" for="keywords">关键词</label>
 
-            <div class="controls">
-                <input type="text" id="keywords" placeholder="关键词" class="input-xxlarge">
-            </div>
+        <div class="controls">
+            <input type="text" id="keywords" placeholder="关键词" class="input-xxlarge">
         </div>
+    </div>
 
-        <div class="control-group">
+    <div class="control-group">
+        <form class="form-horizontal" id="form-upload">
             <label class="control-label" for="title">PDF</label>
 
             <div class="controls">
-                <input type="file" id="pdf">
+                <input type="file" id="pdf" name="pdf">
+                <button class="btn btn-primary" id="btn-upload">上传</button>
             </div>
-        </div>
+        </form>
+    </div>
 
-    </form>
+
 </div>
+
+<script type="text/javascript">
+
+    var IMG_PATH = '';
+
+    $('#btn-upload').click(function () {
+        $('#form-upload').ajaxSubmit({
+            dataType: 'json',
+            beforeSubmit: function () {
+            },
+            success: function (json) {
+                IMG_PATH = json.file_path;
+            },
+            error: function (xhr) { //上传失败
+                console.log(xhr.responseText); //返回失败信息
+            }
+        });
+    });
+
+</script>

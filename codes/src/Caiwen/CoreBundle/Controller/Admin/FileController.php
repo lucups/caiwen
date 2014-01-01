@@ -48,6 +48,16 @@ class FileController extends Controller {
         ));
     }
 
+    public function uploadPdfAction(Request $request) {
+        $file = new File();
+        $file->setFile($request->files->get('file'));
+        $file->setUploadDir('uploads/files');
+        $result = $this->baseUploadAction($file);
+        return $this->makeResponse(AR::ERR_SUCCESS, array(
+            'file_path' => $result['file_path'],
+        ));
+    }
+
     /**
      * The base function for uploading file.
      * @param $file
