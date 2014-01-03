@@ -35,7 +35,7 @@ class UserController extends Controller {
             $session->remove(SecurityContext::AUTHENTICATION_ERROR);
         }
         $message = null;
-        if ($error) $message = $this->get('translator')->trans($error->getMessage());
+        //if ($error) $message = $this->get('translator')->trans($error->getMessage());
         return array(
             'error' => $error,
             'message' => $message,

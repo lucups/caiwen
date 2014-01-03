@@ -88,7 +88,7 @@
                 {{ app.user.username }}
             {% else %}
                 <h4><strong>会员登录</strong></h4>
-                <form method="POST" action="{{ path('_user_login') }}">
+                <form method="POST" action="{{ path('_user_login_check') }}">
                     <p><input name="_username" type="text" class="form-control" id="username" placeholder="用户名"></p>
 
                     <p><input name="_password" type="password" class="form-control" id="username" placeholder="密码"></p>
@@ -101,7 +101,6 @@
                         <a href="{{ path('_user_forget_password') }}">忘记密码？</a>
                     </p>
                 </form>
-
             {% endif %}
 
             <hr>
@@ -139,4 +138,11 @@
         </div>
 
     </div>
+{% endblock %}
+
+{% block js %}
+    <script type="text/javascript">
+        $(document).ready(function () {
+        });
+    </script>
 {% endblock %}

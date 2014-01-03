@@ -3,7 +3,7 @@
 {% block content %}
     <div class="row marketing">
         <div class="col-lg-6 col-lg-offset-3 well">
-            <form method="POST" action="{{ path('_user_login') }}" class="form-signin">
+            <form method="POST" action="{{ path('_user_login_check') }}" class="form-signin">
                 <h2 class="form-signin-heading"><strong>登录菜问</strong></h2>
 
                 <p><input name="_username" type="text" class="form-control" placeholder="账号" autofocus></p>
@@ -20,4 +20,13 @@
             </form>
         </div>
     </div>
+{% endblock %}
+
+
+{% block js %}
+    <script type="text/javascript">
+        $(document).ready(function () {
+            console.log('{{ error }}');
+        });
+    </script>
 {% endblock %}

@@ -31,7 +31,7 @@ class LoginSuccessHandler extends DefaultAuthenticationSuccessHandler {
 
     public function onAuthenticationSuccess(Request $request, TokenInterface $token) {
 
-        return new RedirectResponse('/photo/list/1');
+        return new RedirectResponse('/');
 
         // check user's status
 //        $status = $token->getUser()->getStatus();
