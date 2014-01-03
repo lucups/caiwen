@@ -10,6 +10,8 @@ use Sensio\Bundle\FrameworkExtraBundle\Configuration\Template;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\HttpFoundation\Request;
 
+use Caiwen\CoreBundle\Common\CUtils;
+use Caiwen\CoreBundle\Entity\News;
 
 /**
  * @Route("/")
@@ -25,25 +27,19 @@ class DefaultController extends Controller {
     }
 
     /**
-     * @Route("/personal-info/{name}", name="_personal_info")
+     * @Route("/personal-info", name="_personal_info")
      * @Template()
      */
-    public function personalInfoAction($name){
-        $info = array();
-        if($name == 'ws'){
-            $info = array(
-                'name' => '王双 ',
-                'title' => '大米饭',
-            );
-        }else if($name == 'wnp'){
-            $info = array(
-                'name' => '王念培 ',
-                'title' => '小米粥',
-            );
-        }
+    public function personalInfoAction(Request $request) {
+
+        $str = 'hello_world';
+        $str_n = CUtils::toCapitalizeCamelCase($str);
+
+        $news = new News();
+        CUtils::setParameters($news, $request, array('title', 'content'));
 
         return array(
-            'info' => $info,
+            'output' => $news->getTitle().$news->getContent(),
         );
     }
 
@@ -52,7 +48,7 @@ class DefaultController extends Controller {
      * @Route("/about-us", name="_about_us")
      * @Template()
      */
-    public function aboutUsAction(){
+    public function aboutUsAction() {
         return array();
     }
 
@@ -60,7 +56,7 @@ class DefaultController extends Controller {
      * @Route("/upload", name="_upload")
      * @Template()
      */
-    public function uploadAction(){
+    public function uploadAction() {
         return array();
     }
 
