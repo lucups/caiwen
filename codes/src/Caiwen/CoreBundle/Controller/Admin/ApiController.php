@@ -17,6 +17,7 @@ use Sensio\Bundle\FrameworkExtraBundle\Configuration\Template;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\HttpFoundation\Request;
 
+use Caiwen\CoreBundle\Common\CUtils;
 use Caiwen\CoreBundle\Common\AjaxResponse as AR;
 use Caiwen\CoreBundle\Entity\User;
 use Caiwen\CoreBundle\Entity\News;
@@ -47,7 +48,7 @@ class ApiController extends Controller {
     /**
      * @Route("/news-delete/{news_id}", name="_api_news_delete")
      */
-    public function newsDeleteAction($news_id){
+    public function newsDeleteAction($news_id) {
         $news_r = $this->getDoctrine()->getRepository('CaiwenCoreBundle:News');
         $news = $news_r->findOneByNewsId($news_id);
         $this->makeResponse(AR::ERR_SUCCESS);
@@ -56,7 +57,7 @@ class ApiController extends Controller {
     /**
      * @Route("/docs-add", name="_api_docs_add")
      */
-    public function docsAddAction(Request $request){
+    public function docsAddAction(Request $request) {
 
         $title = $request->get('title');
         $author = $request->get('author');
@@ -78,18 +79,24 @@ class ApiController extends Controller {
     /**
      * @Route("/photo-add", name="_api_photo_add")
      */
-    public function photoAddAction(Request $request){
+    public function photoAddAction(Request $request) {
 
-        $album_id = $request->get('album_id');
-        $title = $request->get('title');
-        $content = $request->get('content');
-        $image_path = $request->get('image_path');
+//        $album_id = $request->get('album_id');
+//        $title = $request->get('title');
+//        $content = $request->get('content');
+//        $image_path = $request->get('image_path');
+//
+//        $photo = new Photo();
+//        $photo->setAlbumId($album_id);
+//        $photo->setTitle($title);
+//        $photo->setContent($content);
+//        $photo->setImagePath($image_path);
 
         $photo = new Photo();
-        $photo->setAlbumId($album_id);
-        $photo->setTitle($title);
-        $photo->setContent($content);
-        $photo->setImagePath($image_path);
+
+        CUtils::setParameters($photo, $request, array(
+            'album_id', 'title', 'content', 'image_path'
+        ));
 
         $photo_r = $this->getDoctrine()->getRepository('CaiwenCoreBundle:Photo');
         $photo_r->save($photo);

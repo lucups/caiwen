@@ -8,8 +8,6 @@
 
 namespace Caiwen\CoreBundle\Common;
 
-use Caiwen\CoreBundle\Entity\News;
-
 class CUtils {
 
     public static function setParameters($obj, $request, $arr) {
