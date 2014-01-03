@@ -85,7 +85,12 @@
 
         <div class="col-lg-4 well">
             {% if app.user %}
-                {{ app.user.username }}
+                <h4><strong>我的信息</strong></h4>
+                <p>用户名：<strong>{{ app.user.username }}</strong></p>
+                <p>
+                    <a class="btn btn-primary" href="#">查看我的提问</a>
+                    <a class="btn btn-primary" href="{{ path("_user_logout") }}">退出</a>
+                </p>
             {% else %}
                 <h4><strong>会员登录</strong></h4>
                 <form method="POST" action="{{ path('_user_login_check') }}">
