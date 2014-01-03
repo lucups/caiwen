@@ -125,7 +125,6 @@ class User implements UserInterface {
      */
     public function setUsername($username) {
         $this->username = $username;
-
         return $this;
     }
 
@@ -137,7 +136,6 @@ class User implements UserInterface {
      */
     public function setEmail($email) {
         $this->email = $email;
-
         return $this;
     }
 
@@ -158,7 +156,6 @@ class User implements UserInterface {
      */
     public function setPassword($password) {
         $this->password = $password;
-
         return $this;
     }
 

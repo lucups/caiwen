@@ -67,3 +67,10 @@ swiftmailer:
     username:  "%mailer_user%"
     password:  "%mailer_password%"
     spool:     { type: memory }
+
+services:
+    user.login_success_handler:
+        class:  Caiwen\CoreBundle\Component\LoginSuccessHandler
+        arguments:  [@security.http_utils,{},@doctrine]
+        tags:
+            - { name: 'monolog.logger', channel: 'security' }

@@ -84,20 +84,25 @@
         </div>
 
         <div class="col-lg-4 well">
-            <h4><strong>会员登录</strong></h4>
+            {% if app.user %}
+                {{ app.user.username }}
+            {% else %}
+                <h4><strong>会员登录</strong></h4>
+                <form method="POST" action="{{ path('_user_login') }}">
+                    <p><input name="_username" type="text" class="form-control" id="username" placeholder="用户名"></p>
 
-            <p><input type="text" class="form-control" id="username" placeholder="用户名"></p>
+                    <p><input name="_password" type="password" class="form-control" id="username" placeholder="密码"></p>
 
-            <p><input type="password" class="form-control" id="username" placeholder="密码"></p>
+                    <p class="text-right">
+                        <button type="submit" class="btn btn-primary btn-block">登 录</button>
+                    </p>
+                    <p class="text-right">
+                        <a href="{{ path('_user_register') }}">没有账号？</a>
+                        <a href="{{ path('_user_forget_password') }}">忘记密码？</a>
+                    </p>
+                </form>
 
-            <p class="text-right">
-                <button type="button" class="btn btn-primary btn-block">登 录</button>
-            </p>
-            <p class="text-right">
-                <a href="{{ path('_user_register') }}">没有账号？</a>
-                <a href="{{ path('_user_forget_password') }}">忘记密码？</a>
-            </p>
-
+            {% endif %}
 
             <hr>
             <h4><strong>快速搜索</strong></h4>

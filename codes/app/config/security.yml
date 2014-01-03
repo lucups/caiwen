@@ -11,11 +11,18 @@ security:
         ROLE_SUPER_ADMIN: [ROLE_USER, ROLE_ADMIN, ROLE_ALLOWED_TO_SWITCH]
 
     providers:
+        chain_provider:
+            chain:
+                providers: [in_memory, main]
         in_memory:
             memory:
                 users:
-                    lucups:  { password: kkkk, roles: [ 'ROLE_USER' ] }
+                    lucups:  { password: kkkkk, roles: [ 'ROLE_USER' ] }
                     admin: { password: admin, roles: [ 'ROLE_ADMIN' ] }
+        main:
+            entity:
+                class: Caiwen\CoreBundle\Entity\User
+
 
     firewalls:
         dev:
@@ -27,6 +34,9 @@ security:
             form_login:
                 check_path: _user_login_check
                 login_path: _user_login
+                username_parameter: _username
+                password_parameter: _password
+                success_handler: user.login_success_handler
             logout:
                 path:   _user_logout
                 target: _index
