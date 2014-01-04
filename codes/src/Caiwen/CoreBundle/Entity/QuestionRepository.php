@@ -15,7 +15,7 @@ class QuestionRepository extends EntityRepository {
     public function save($question) {
         $this->getEntityManager()->persist($question);
         $this->getEntityManager()->flush();
-        return $question->getNewsId();
+        return $question->getQuestionId();
     }
 
     public function delete($question) {

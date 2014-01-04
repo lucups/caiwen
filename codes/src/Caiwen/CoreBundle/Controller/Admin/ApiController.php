@@ -27,7 +27,7 @@ use Caiwen\CoreBundle\Entity\Docs;
 /**
  * Class ApiController
  * @package Caiwen\CoreBundle\Controller\Admin
- * @Route("/api")
+ * @Route("/admin/api")
  */
 class ApiController extends Controller {
 

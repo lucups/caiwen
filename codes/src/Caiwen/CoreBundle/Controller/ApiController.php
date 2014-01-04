@@ -3,6 +3,7 @@
 namespace Caiwen\CoreBundle\Controller;
 
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
+use Symfony\Component\HttpFoundation\RedirectResponse;
 use Symfony\Component\Security\Core\SecurityContext;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Template;
@@ -11,7 +12,9 @@ use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\HttpFoundation\Request;
 
 use Caiwen\CoreBundle\Common\AjaxResponse as AR;
+use Caiwen\CoreBundle\Common\CUtils;
 use Caiwen\CoreBundle\Entity\User;
+use Caiwen\CoreBundle\Entity\Question;
 
 /**
  * @Route("/api")
@@ -22,7 +25,7 @@ class ApiController extends Controller {
     /**
      * @Route("/register", name="_api_register")
      */
-    public function registerAction(Request $request){
+    public function registerAction(Request $request) {
         $user = new User();
 
         $username = $request->get('username');
@@ -47,17 +50,25 @@ class ApiController extends Controller {
     /**
      * @Route("/reset-password", name="_api_reset_password")
      */
-    public function resetPasswordAction(){
+    public function resetPasswordAction() {
         return $this->makeResponse(AR::ERR_SUCCESS);
     }
 
     /**
      * @Route("/question-add", name="_api_question_add")
      */
-    public function questionAddAction() {
+    public function questionAddAction(Request $request) {
+        $question = new Question();
+        CUtils::setParameters($question, $request, array(
+            'title', 'content', 'image_path'
+        ));
+        $question->setUser($this->getUser());
 
-        return $this->makeResponse(AR::ERR_SUCCESS);
+        $question_r = $this->getDoctrine()->getRepository('CaiwenCoreBundle:Question');
+        $question_r->save($question);
+        return $this->redirect($this->generateUrl('_faq_list'));
     }
+
 
     private function makeResponse($error_id = AR::ERR_SUCCESS, $data = null) {
         return new Response(AR::encode($error_id, $data));
