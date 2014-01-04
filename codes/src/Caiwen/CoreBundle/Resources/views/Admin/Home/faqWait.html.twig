@@ -18,13 +18,13 @@
         </tr>
         </thead>
         <!-- 数据 -->
-        {% for i in 1..10 %}
+        {% for question in questions %}
             <tbody>
             <tr>
-                <td>{{ i }}</td>
-                <td>草泥马是什么生物？对白菜有害吗？</td>
-                <td>念njau</td>
-                <td>2013-10-22 09:18</td>
+                <td>{{ question.questionId }}</td>
+                <td>{{ question.title }}</td>
+                <td>{{ question.user.username }}</td>
+                <td>{{ question.createTime|date('Y-m-d h:i') }}</td>
                 <td><a href="#" class="btn btn-primary">我来回答</a></td>
                 <td>
                     <a href="#"><i class="icon-pencil"></i></a>

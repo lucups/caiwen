@@ -23,4 +23,19 @@ class QuestionRepository extends EntityRepository {
         $this->getEntityManager()->flush();
     }
 
+
+    public function findQuestionsNotAnswered(){
+        return $this->findBy(array(
+            'answer' => NULL,
+        ));
+    }
+
+    public function getNumOfNotAnswered(){
+        $questions = $this->findBy(array(
+            'answer' => NULL,
+        ));
+
+        return count($questions);
+    }
+
 } 

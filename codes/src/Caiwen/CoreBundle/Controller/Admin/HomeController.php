@@ -32,7 +32,10 @@ class HomeController extends Controller {
      * @Template()
      */
     public function indexAction() {
-        return array();
+        $question_wait_num = $this->getDoctrine()->getRepository('CaiwenCoreBundle:Question')->getNumOfNotAnswered();
+        return array(
+            'question_wait_num' => $question_wait_num,
+        );
     }
 
     /**
@@ -117,7 +120,11 @@ class HomeController extends Controller {
      * @Template()
      */
     public function faqListAction() {
-        return array();
+        $question_r = $this->getDoctrine()->getRepository('CaiwenCoreBundle:Question');
+        $questions = $question_r->findAll();
+        return array(
+            'questions' => $questions,
+        );
     }
 
     /**
@@ -125,7 +132,11 @@ class HomeController extends Controller {
      * @Template()
      */
     public function faqWaitAction() {
-        return array();
+        $question_r = $this->getDoctrine()->getRepository('CaiwenCoreBundle:Question');
+        $questions = $question_r->findQuestionsNotAnswered();
+        return array(
+            'questions' => $questions,
+        );
     }
 
     /**
