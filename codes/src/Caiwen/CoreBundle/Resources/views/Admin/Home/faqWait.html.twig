@@ -25,7 +25,8 @@
                 <td>{{ question.title }}</td>
                 <td>{{ question.user.username }}</td>
                 <td>{{ question.createTime|date('Y-m-d h:i') }}</td>
-                <td><a href="#" class="btn btn-primary">我来回答</a></td>
+                <td><a href="#modal-answer-{{ question.questionId }}" data-toggle="modal"
+                       class="btn btn-primary">我来回答</a></td>
                 <td>
                     <a href="#"><i class="icon-pencil"></i></a>
                     <a href="#myModal" role="button" data-toggle="modal"><i class="icon-remove"></i></a>
@@ -46,3 +47,46 @@
         <li><a href="#">Next</a></li>
     </ul>
 </div>
+
+<!-- Modal -->
+{% for question in questions %}
+    <div id="modal-answer-{{ question.questionId }}" class="modal hide fade" tabindex="-1" role="dialog"
+         aria-labelledby="myModalLabel" aria-hidden="true">
+        <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+            <h3 id="myModalLabel">{{ question.title }}</h3>
+        </div>
+        <div class="modal-body">
+            <p>
+                <textarea id="answer-{{ question.questionId }}"  class="span12" rows="5"></textarea>
+            </p>
+        </div>
+        <div class="modal-footer">
+            <button class="btn" data-dismiss="modal" aria-hidden="true">关闭</button>
+            <button class="btn btn-primary" id="btn-answer-{{ question.questionId }}">提交回答</button>
+        </div>
+    </div>
+    <script>
+        $(document).delegate('#btn-answer-{{ question.questionId }}', 'click', function () {
+            var qid = {{ question.questionId }};
+            var qan = $('#answer-{{ question.questionId }}').val();
+            $('#modal-answer-{{ question.questionId }}').modal('hide');
+            answerSubmit(qid, qan);
+        });
+    </script>
+{% endfor %}
+<script>
+    function answerSubmit(qid, answer) {
+        $.ajax({
+            url: '{{ path('_question_answer') }}',
+            method: 'POST',
+            data: 'question_id=' + qid + '&answer=' +answer,
+            dataType: 'json',
+            success: function(msg){
+                loadFaqWaitPage();
+            }
+        });
+    }
+</script>
+
+

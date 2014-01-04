@@ -69,6 +69,18 @@ class ApiController extends Controller {
         return $this->redirect($this->generateUrl('_faq_list'));
     }
 
+    /**
+     * @Route("/question-answer", name="_question_answer")
+     */
+    public function questionAnswerAction(Request $request){
+        $question_id = $request->get('question_id');
+        $question_r = $this->getDoctrine()->getRepository('CaiwenCoreBundle:Question');
+        $question = $question_r->findOneByQuestionId($question_id);
+        $answer = $request->get('answer');
+        $question->setAnswer($answer);
+        $question_r->save($question);
+        return $this->makeResponse(AR::ERR_SUCCESS);
+    }
 
     private function makeResponse($error_id = AR::ERR_SUCCESS, $data = null) {
         return new Response(AR::encode($error_id, $data));
