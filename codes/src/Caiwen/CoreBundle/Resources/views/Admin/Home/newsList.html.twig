@@ -23,10 +23,10 @@
         <tr>
             <td>{{ news.newsId }}</td>
             <td><a href="{{ path('_news_view', {news_id:news.newsId }) }}" target="_blank">{{ news.title }}</td>
-            <td>2013-10-22 09:18</td>
-            <td>admin</td>
+            <td>{{ news.createTime|date('Y-m-d h:i') }}</td>
+            <td>Admin</td>
             <td>
-                <a href="user.html"><i class="icon-pencil"></i></a>
+                <a href="#"><i class="icon-pencil"></i></a>
                 <a href="#myModal" role="button" data-toggle="modal"><i class="icon-remove"></i></a>
             </td>
         </tr>

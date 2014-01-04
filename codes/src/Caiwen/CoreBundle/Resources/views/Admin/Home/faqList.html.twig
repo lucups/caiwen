@@ -22,7 +22,11 @@
             <tbody>
             <tr>
                 <td>{{ question.questionId }}</td>
-                <td>{{ question.title }}</td>
+                <td>
+                    <a href="{{ path('_faq_view', {question_id:question.questionId }) }}" target="_blank">
+                        {{ question.title }}
+                    </a>
+                </td>
                 <td>{{ question.user.username }}</td>
                 <td>{{ question.createTime|date('Y-m-d h:i') }}</td>
                 <td><a href="#" class="btn btn-primary">查看详细</a></td>
