@@ -9,6 +9,7 @@ use Sensio\Bundle\FrameworkExtraBundle\Configuration\Template;
 
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\HttpFoundation\Request;
+use Caiwen\CoreBundle\Entity\Question;
 
 
 /**
@@ -29,7 +30,12 @@ class FaqController extends Controller {
      * @Template()
      */
     public function listAction() {
-        return array();
+
+        $question_r = $this->getDoctrine()->getRepository('CaiwenCoreBundle:Question');
+        $questions = $question_r->findAll();
+        return array(
+            'questions' => $questions,
+        );
     }
 
     /**
@@ -37,7 +43,11 @@ class FaqController extends Controller {
      * @Template()
      */
     public function viewAction($question_id){
-        return array();
+        $question_r = $this->getDoctrine()->getRepository('CaiwenCoreBundle:Question');
+        $question = $question_r->findOneByQuestionId($question_id);
+        return array(
+            'question' => $question,
+        );
     }
 
 }

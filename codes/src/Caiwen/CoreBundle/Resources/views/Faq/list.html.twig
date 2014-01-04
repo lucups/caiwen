@@ -16,13 +16,13 @@
         </div>
         <div class="col-lg-12 well" style="margin-top:20px;">
             <ul>
-                <li><a href="{{ path('_faq_view', {question_id:1}) }}">请问白菜虫害如何预防？有什么参考文献吗？...</a> <span class="pull-right">2013-10-10</span></li>
-                <li><a href="{{ path('_faq_view', {question_id:1}) }}">请问白菜虫害如何预防？有什么参考文献吗？...</a> <span class="pull-right">2013-10-10</span></li>
-                <li><a href="{{ path('_faq_view', {question_id:1}) }}">请问白菜虫害如何预防？有什么参考文献吗？...</a> <span class="pull-right">2013-10-10</span></li>
-                <li><a href="{{ path('_faq_view', {question_id:1}) }}">请问白菜虫害如何预防？有什么参考文献吗？...</a> <span class="pull-right">2013-10-10</span></li>
-                <li><a href="{{ path('_faq_view', {question_id:1}) }}">请问白菜虫害如何预防？有什么参考文献吗？...</a> <span class="pull-right">2013-10-10</span></li>
-                <li><a href="{{ path('_faq_view', {question_id:1}) }}">请问白菜虫害如何预防？有什么参考文献吗？...</a> <span class="pull-right">2013-10-10</span></li>
-                <li><a href="{{ path('_faq_view', {question_id:1}) }}">请问白菜虫害如何预防？有什么参考文献吗？...</a> <span class="pull-right">2013-10-10</span></li>
+                {% for question in questions %}
+                <li>
+                    <a href="{{ path('_faq_view', {question_id:question.questionId}) }}">
+                        {{ question.title }}
+                    </a>
+                    <span class="pull-right">{{ question.createTime|date('Y-m-d h:i') }}</span></li>
+                {% endfor %}
             </ul>
         </div>
 
