@@ -13,7 +13,7 @@
             <th>问答标题</th>
             <th>提问会员</th>
             <th>提问时间</th>
-            <th style="width: 100px;"></th>
+            <th style="width: 100px;">问题状态</th>
             <th style="width: 26px;"></th>
         </tr>
         </thead>
@@ -29,7 +29,13 @@
                 </td>
                 <td>{{ question.user.username }}</td>
                 <td>{{ question.createTime|date('Y-m-d h:i') }}</td>
-                <td><a href="#" class="btn btn-primary">查看详细</a></td>
+                <td>
+                    {% if question.answer %}
+                        已经回答
+                    {% else %}
+                        尚未回答
+                    {% endif %}
+                </td>
                 <td>
                     <a href="#"><i class="icon-pencil"></i></a>
                     <a href="#myModal" role="button" data-toggle="modal"><i class="icon-remove"></i></a>
