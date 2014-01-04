@@ -34,7 +34,7 @@
                     <label for="inputEmail3" class="col-lg-2 control-label">附加图片</label>
 
                     <div class="col-lg-10">
-                        <input type="file" class="form-control">
+                        <input type="file" name="image" class="form-control">
                     </div>
                 </div>
             </form>
@@ -64,13 +64,13 @@
                     },
                     success: function (json) {
                         $('#image_path').val(json.data.image_path);
+                        // 提交表单
+                        $('#form-faq').submit();
                     },
                     error: function (xhr) { //上传失败
                         console.log(xhr.responseText); //返回失败信息
                     }
                 });
-                // 提交表单
-                $('#form-faq').submit();
             });
         });
     </script>
