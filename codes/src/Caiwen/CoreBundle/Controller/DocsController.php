@@ -45,6 +45,7 @@ class DocsController extends Controller {
         $docses = $docs_r->doSearch($arr);
 
         return array(
+            'arr' => $arr,
             'docses' => $docses,
         );
     }

@@ -3,18 +3,49 @@
 {% block content %}
     <div class="row marketing" style="margin-top:0px;">
         <div class="col-12">
-            <h2>"呵呵" 的文献搜索结果</h2>
+            <h2>文献搜索结果</h2>
             <ol class="breadcrumb" id="bc-list">
             </ol>
             <hr>
         </div>
 
         <div class="col-lg-12 well" style="margin-top:20px;">
-            <ul>
+            <h4>搜索条件：</h4>
+
+            <p>
+                标题：{{ arr.title }}<br/>
+                作者：{{ arr.author }}<br/>
+                关键词：{{ arr.keywords }}
+            </p>
+            <hr/>
+            <h4>搜索结果：</h4>
+            <table class="table table-condensed">
+                <thead>
+                <tr>
+                    <th>标题</th>
+                    <th>作者</th>
+                    <th>关键词</th>
+                    <th>下载</th>
+                </tr>
+                </thead>
                 {% for docs in docses %}
-                    <li>{{ docs.title }} <a class="pull-right" href="#">点击下载</a></li>
+
+                    <tr>
+                        <td>{{ docs.title }}</td>
+                        <td>{{ docs.author }}</td>
+                        <td>{{ docs.keywords }}</td>
+                        <td>
+                            <a href="{{ asset('uploads/files/') }}{{ docs.filePath }}" target="_blank">
+                                点击下载
+                            </a>
+                        </td>
+                    </tr>
+
+
+
+
                 {% endfor %}
-            </ul>
+            </table>
         </div>
 
     </div>

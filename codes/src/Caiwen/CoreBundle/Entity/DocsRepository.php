@@ -27,27 +27,94 @@ class DocsRepository extends EntityRepository {
 
         $sql = 'SELECT d FROM CaiwenCoreBundle:Docs d WHERE ';
 
-//        if ($arr['title']) {
-//            $sql .= 'd.title LIKE :title';
-//        }
+        $js = 0;
+        if ($arr['title']) {
+            $sql .= 'd.title LIKE :title ';
+            $js = 1;
+        }
 
-//        if ($arr['author']) {
-//            $sql .= 'd.author LIKE :author AND ';
-//        }
-//
+        if ($arr['author']) {
+            if ($js > 0) {
+                $sql .= 'AND ';
+                $js = 2;
+            } else {
+                $js = 3;
+            }
+            $sql .= 'd.author LIKE :author ';
+        }
+
         if ($arr['keywords']) {
+            if ($js > 0) {
+                $sql .= 'AND ';
+                if($js == 1){
+                    $js = 4;
+                }else if($js == 2){
+                    $js = 5;
+                }else{
+                    $js = 6;
+                }
+
+            } else {
+                $js = 7;
+            }
             $sql .= 'd.keywords LIKE :keywords';
         }
 
-        $docses = $this->getEntityManager()
-            ->createQuery($sql)
-            //->setParameter('title', $arr['title'])
-            // ->setParameter('author', $arr['author'])
-            ->setParameter('keywords', '%'.$arr['keywords'].'%')
-            ->getResult();
-        return $docses;
+        $docses = NULL;
+        switch ($js) {
+            case 0:
+                break;
+            case 1:
+                $docses = $this->getEntityManager()
+                    ->createQuery($sql)
+                    ->setParameter('title', '%' . $arr['title'] . '%')
+                    ->getResult();
+                break;
+            case 2:
+                $docses = $this->getEntityManager()
+                    ->createQuery($sql)
+                    ->setParameter('title', '%' . $arr['title'] . '%')
+                    ->setParameter('author', '%' . $arr['author'] . '%')
+                    ->getResult();
+                break;
+            case 3:
+                $docses = $this->getEntityManager()
+                    ->createQuery($sql)
+                    ->setParameter('author', '%' . $arr['author'] . '%')
+                    ->getResult();
+                break;
+            case 4:
+                $docses = $this->getEntityManager()
+                    ->createQuery($sql)
+                    ->setParameter('title', '%' . $arr['title'] . '%')
+                    ->setParameter('keywords', '%' . $arr['keywords'] . '%')
+                    ->getResult();
+                break;
+            case 5:
+                $docses = $this->getEntityManager()
+                    ->createQuery($sql)
+                    ->setParameter('author', '%' . $arr['author'] . '%')
+                    ->setParameter('keywords', '%' . $arr['keywords'] . '%')
+                    ->getResult();
+                break;
+            case 6:
+                $docses = $this->getEntityManager()
+                    ->createQuery($sql)
+                    ->setParameter('title', '%' . $arr['title'] . '%')
+                    ->setParameter('author', '%' . $arr['author'] . '%')
+                    ->setParameter('keywords', '%' . $arr['keywords'] . '%')
+                    ->getResult();
+                break;
+            case 7:
+                $docses = $this->getEntityManager()
+                    ->createQuery($sql)
+                    ->setParameter('keywords', '%' . $arr['keywords'] . '%')
+                    ->getResult();
+                break;
+        }
 
-        return $this->findAll();
+
+        return $docses;
     }
 
 }
