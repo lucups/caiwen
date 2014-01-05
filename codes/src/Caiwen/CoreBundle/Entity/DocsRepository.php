@@ -23,4 +23,10 @@ class DocsRepository extends EntityRepository {
         $this->getEntityManager()->flush();
     }
 
-} 
+    public function doSearch($arr){
+
+
+        return $this->findAll();
+    }
+
+}

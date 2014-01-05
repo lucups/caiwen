@@ -10,12 +10,12 @@
         </div>
 
         <div class="col-lg-12 well" style="margin-top:20px;">
-            <form>
+            <form method="POST" action="{{ path('_docs_search_list') }}">
                 <div class="form-group row">
                     <label for="inputEmail3" class="col-lg-2 control-label">标题</label>
 
                     <div class="col-lg-10">
-                        <input type="text" class="form-control" id="inputEmail3" placeholder="标题">
+                        <input name="title" type="text" class="form-control" id="inputEmail3" placeholder="标题">
                     </div>
                 </div>
 
@@ -23,7 +23,7 @@
                     <label for="inputEmail3" class="col-lg-2 control-label">作者</label>
 
                     <div class="col-lg-10">
-                        <input type="text" class="form-control" id="inputEmail3" placeholder="作者">
+                        <input name="author" type="text" class="form-control" id="inputEmail3" placeholder="作者">
                     </div>
                 </div>
 
@@ -31,11 +31,11 @@
                     <label for="inputEmail3" class="col-lg-2 control-label">关键词</label>
 
                     <div class="col-lg-10">
-                        <input type="text" class="form-control" id="inputEmail3" placeholder="关键词">
+                        <input name="keywords" type="text" class="form-control" id="inputEmail3" placeholder="关键词">
                     </div>
                 </div>
                 <div>
-                    <button type="button" class="btn btn-primary pull-right col-lg-2">搜 索</button>
+                    <button type="submit" class="btn btn-primary pull-right col-lg-2">搜 索</button>
                 </div>
             </form>
         </div>

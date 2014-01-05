@@ -11,13 +11,9 @@
 
         <div class="col-lg-12 well" style="margin-top:20px;">
             <ul>
-                <li>菜问文献菜问文献菜问文献菜问文献菜问文献菜问文献菜问文献 <a class="pull-right" href="{{ path('_news_view') }}">点击下载</a></li>
-                <li>菜问文献菜问文献菜问文献菜问文献菜问文献菜问文献菜问文献 <a class="pull-right" href="{{ path('_news_view') }}">点击下载</a></li>
-                <li>菜问文献菜问文献菜问文献菜问文献菜问文献菜问文献菜问文献 <a class="pull-right" href="{{ path('_news_view') }}">点击下载</a></li>
-                <li>菜问文献菜问文献菜问文献菜问文献菜问文献菜问文献菜问文献 <a class="pull-right" href="{{ path('_news_view') }}">点击下载</a></li>
-                <li>菜问文献菜问文献菜问文献菜问文献菜问文献菜问文献菜问文献 <a class="pull-right" href="{{ path('_news_view') }}">点击下载</a></li>
-                <li>菜问文献菜问文献菜问文献菜问文献菜问文献菜问文献菜问文献 <a class="pull-right" href="{{ path('_news_view') }}">点击下载</a></li>
-                <li>菜问文献菜问文献菜问文献菜问文献菜问文献菜问文献菜问文献 <a class="pull-right" href="{{ path('_news_view') }}">点击下载</a></li>
+                {% for docs in docses %}
+                    <li>{{ docs.title }} <a class="pull-right" href="#">点击下载</a></li>
+                {% endfor %}
             </ul>
         </div>
 

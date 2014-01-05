@@ -17,7 +17,7 @@ security:
         in_memory:
             memory:
                 users:
-                    
+
 
         main:
             entity:
