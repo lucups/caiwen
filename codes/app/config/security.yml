@@ -17,8 +17,8 @@ security:
         in_memory:
             memory:
                 users:
-                    lucups:  { password: kkkkk, roles: [ 'ROLE_USER' ] }
-                    admin: { password: admin, roles: [ 'ROLE_ADMIN' ] }
+                    
+
         main:
             entity:
                 class: Caiwen\CoreBundle\Entity\User

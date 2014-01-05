@@ -2,7 +2,7 @@ version controller system
 
 版本控制系统 VCS
 hg
-git (我们用的)
+git (我们用的，远程托管地址： https://bitbucket.org/Lucups/caiwen )
 svn
 cvs
 vss(ms)
