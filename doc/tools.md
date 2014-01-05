@@ -15,7 +15,19 @@
     Sublime Text 2
 
 
+### Symfony 简介
+
+-------------------
+
+    MVC Model View Controller
+
+    Symfony 框架 Controller
+    Doctrine 数据持久化框架（访问数据库） 
+    Twig 模板引擎 View
+
 ### 项目结构
+
+-------------------
 
     bin win/linux 脚本（导入数据库）
     codes/ 源码目录(symfony root)
