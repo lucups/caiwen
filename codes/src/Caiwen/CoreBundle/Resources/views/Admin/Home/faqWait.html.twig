@@ -22,7 +22,11 @@
             <tbody>
             <tr>
                 <td>{{ question.questionId }}</td>
-                <td>{{ question.title }}</td>
+                <td>
+                    <a href="{{ path('_faq_view', {question_id:question.questionId }) }}" target="_blank">
+                        {{ question.title }}
+                    </a>
+                </td>
                 <td>{{ question.user.username }}</td>
                 <td>{{ question.createTime|date('Y-m-d h:i') }}</td>
                 <td><a href="#modal-answer-{{ question.questionId }}" data-toggle="modal"
@@ -58,7 +62,7 @@
         </div>
         <div class="modal-body">
             <p>
-                <textarea id="answer-{{ question.questionId }}"  class="span12" rows="5"></textarea>
+                <textarea id="answer-{{ question.questionId }}" class="span12" rows="5"></textarea>
             </p>
         </div>
         <div class="modal-footer">
@@ -80,9 +84,9 @@
         $.ajax({
             url: '{{ path('_question_answer') }}',
             method: 'POST',
-            data: 'question_id=' + qid + '&answer=' +answer,
+            data: 'question_id=' + qid + '&answer=' + answer,
             dataType: 'json',
-            success: function(msg){
+            success: function (msg) {
                 loadFaqWaitPage();
             }
         });
