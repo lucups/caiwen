@@ -4,76 +4,67 @@
 
 * [为什么选用 Symfony + Bootstrap 框架](#q1)
 * [数据库访问部分](#q2)
+* [什么是MVC](#q3)
+* [参考资料](#q4)
 
 
 ----------------------------------------------------
 <h3 id="q1">为什么选用 Symfony + Bootstrap 框架</h3>
+	
+Symfony 是一个基于MVC模式的面向对象的PHP5框架。
 
-	bin win/linux 脚本（导入数据库）
-	codes/ 源码目录(symfony root)
-	    app/ 项目配置、缓存、日志
-	        cache/
-	        config/
-	        logs/
-	        Resources/
-	    bin/ 不用管
-	    src/ 源码
-	        Acme/ symfony自带的 demo
-	        Caiwen/
-	            CoreBundle/
-	                Common/  公共函数库
-	                Controller/ 控制器
-	                DI/ 依赖注入
-	                Entity/ 实体，模型
-	                Resource/ 资源
-	                    config/
-	                    doc/
-	                    public/
-	                    trans../
-	                    views/  视图， Twig模板引擎 （其他模板引擎：Smarty, http://www.zhihu.com/question/21452677/answer/19466884）
-	                Tests    
-	    vendor/ 框架所需要的模块
-	    web/ js css image
+Symfony的优势是:
 
+1. 扩展性强（比如默认采用的模板引擎 Twig 和 数据持久化框架 Doctrine，都对 Symfony 本身没有依赖）；
+2. 是一个适用于快速开发企业级应用的 PHP 框架，同时它也是一个典型的 MVC 框架，做到业务、数据、显示分离；
+3. 开源免费；
 
-	config/ 项目部署配置
-	doc/ 文档
-	sql/ 数据库设计文件
-	webfront/ 前台
+对于熟悉 symfony 框架的开发者来说，使用 Symfony 可以极大的提升开发效率，很多模块只需要一些小改动甚至不需要改动就可以复用，达到节约时间、提升效率的效果。
+
+Bootstrap 是一个简洁、直观、强悍的前端开发框架，让web开发更迅速、简单。
+
+Bootstrap的优势是：
+
+1. 包含了丰富的Web组件，根据这些组件，可以快速的搭建一个漂亮、功能完备的网站（下拉菜单、按钮组、按钮下拉菜单、导航、导航条、面包屑、分页、排版、缩略图、警告对话框、进度条、媒体对象等）；
+2. 自带了13个jQuery插件，这些插件为Bootstrap中的组件赋予了“生命”（模式对话框、标签页、滚动条、弹出框等）；
+3. 可以对Bootstrap中所有的CSS变量进行修改，依据自己的需求裁剪代码；
+
+使用 Bootstrap，极大地加快了前台页面的开发速度，我们不需要考虑具体的网页布局、样式设计效果，集中精力于重要数据的显示。
 
 ----------------------------------------------------
 <h3 id="q2">数据库访问部分</h3>
 
-	bin win/linux 脚本（导入数据库）
-	codes/ 源码目录(symfony root)
-	    app/ 项目配置、缓存、日志
-	        cache/
-	        config/
-	        logs/
-	        Resources/
-	    bin/ 不用管
-	    src/ 源码
-	        Acme/ symfony自带的 demo
-	        Caiwen/
-	            CoreBundle/
-	                Common/  公共函数库
-	                Controller/ 控制器
-	                DI/ 依赖注入
-	                Entity/ 实体，模型
-	                Resource/ 资源
-	                    config/
-	                    doc/
-	                    public/
-	                    trans../
-	                    views/  视图， Twig模板引擎 （其他模板引擎：Smarty, http://www.zhihu.com/question/21452677/answer/19466884）
-	                Tests    
-	    vendor/ 框架所需要的模块
-	    web/ js css image
+与数据库交互部分是用 symfony 默认的 doctrine 框架。
 
+Doctrine是基于数据库抽像层上的ORM,它可以通过PHP对象轻松访问所有的数据库。
 
-	config/ 项目部署配置
-	doc/ 文档
-	sql/ 数据库设计文件
-	webfront/ 前台
+我们采用的数据库是开源免费的 MySQL。
+
+配置连接 MySQL 连接信息在 symfony 框架的配置文件里(参见 caiwen/codes/app/config/parameters.yml 文件)。
+
+查找操作可以直接使用 Repository 自带的 find 系列方法；
+
+添加删除操作可以使用 DQL（Doctrine 查询语言，语法与 SQL 类似）。
+
+----------------------------------------------------
+<h3 id="q3">什么是MVC</h3>
+	
+MVC全名是Model View Controller，是模型(model)、视图(view)、控制器(controller)的缩写。
+
+MVC是一个框架模式，它强制性的使应用程序的输入、处理和输出分开。使用MVC应用程序被分成三个核心部件：模型、视图、控制器。它们各自处理自己的任务。
+
+Symfony是一个典型的 MVC 框架，在 Symfony 中：
+
+1. M: 数据持久化层 Doctrine 负责数据模型的操作（比如查找、添加、更新、删除一条新闻），是 Model 层；
+2. V: 模板引擎 Twig 负责控制网页部分的显示效果（把控制器返回的数据与 html 页面整合），是 View 层；
+3. C: Symfony 的 Controller 负责处理用户请求，调用 Doctrine 访问数据库，最后调用 Twig 生成返回的页面，是 Controller 层；
+
+----------------------------------------------------
+<h3 id="q4">参考资料</h3>
+
+* [MVC框架-百度百科](http://baike.baidu.com/view/5432454.htm)
+* [symfony 中文站](http://symfony.cn/)
+* [firehare的Symfony2系列文章汇总](http://firehare.blog.51cto.com/809276/703599)
+* [doctrine-百度百科](http://baike.baidu.com/view/2517615.htm)
 
 ----------------------------------------------------
